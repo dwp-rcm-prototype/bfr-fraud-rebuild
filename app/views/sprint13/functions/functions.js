@@ -42,6 +42,12 @@ var functions = {
       ),
       build_checkbox(
         req,
+        'Housing benefits',
+        'Some text about claiming housing benefits goes here',
+        'housing',
+        'true'),      
+      build_checkbox(
+        req,
         'Dishonestly claiming a disability benefit',
         'they do not really have the disability they are claiming for.',
         'disability',
@@ -70,12 +76,6 @@ var functions = {
         'Not declaring savings or other non-work related income',
         'when the person hasn’t declared other non-work related income, such as savings, inheritance, winnings, property, pensions or compensation.',
         'income',
-        'true'),
-      build_checkbox(
-        req,
-        'Housing benefits',
-        'Some text about claiming housing benefits goes here',
-        'housing',
         'true'),
       build_checkbox(
         req,

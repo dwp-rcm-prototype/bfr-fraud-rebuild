@@ -68,7 +68,7 @@ var sessions = {
         }
 
         if ( selection === 'housing' ) {
-          fraud_titles.push({'title':'is claiming housing benefits and...'});
+          fraud_titles.push({'title':'is claiming housing benefits'});
         }
 
         if ( selection === 'other' ) {
@@ -360,7 +360,7 @@ var sessions = {
     if ( req.path === '/landlord' ) {
       res.cookie('landlord', req.body);
     }
-    
+
     // private
     if ( req.path === '/private' ) {
       res.cookie('private', req.body);

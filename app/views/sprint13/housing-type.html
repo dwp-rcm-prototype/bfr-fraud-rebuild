@@ -1,70 +1,73 @@
 {% extends "layout.html" %}
 
 {% block phase%}
-  {% include 'sprint12/partials/phase-banner.html'%}
+{% include 'sprint12/partials/phase-banner.html'%}
 {% endblock %}
 
 {% block main %}
-<form method="post" class="testingstuff">
-<fieldset>
-  <legend class="visuallyhidden" for="form-group-details">
-    Select as many as you can
-  </legend>
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <h1 class="heading-xlarge">What is the person doing?</h1>
+    <form method="post" class="testingstuff">
+      <fieldset>
+        <legend class="visuallyhidden" for="form-group-details">
+          Select one
+        </legend>
 
-  <p class="bold-medium">Select as many as you can</p>
-
-  <div class="form-group">
-
-
-
-
-                <label class="block-label selected" for="council">
-                  <input id="council" type="radio" name="button" value="council">
-                  <span>Council Property</span><br>
-                </label>
-
-                <label class="block-label" for="private">
-                  <input id="private" type="radio" name="button" value="private">
-                  <span>Private property</span><br>
-                </label>
-
-                <label class="block-label" for="contrived">
-                  <input id="contrived" type="radio" name="button" value="contrived">
-                  <span>Contrived tenancy</span><br>
-                </label>
-
-                <label class="block-label" for="residence">
-                  <input id="residence" type="radio" name="button" value="non-residence">
-                  <span>Non-residence</span><br>
-                </label>
-
-                <label class="block-label" for="dependants">
-                  <input id="dependants" type="radio" name="button" value="non-dependants">
-                  <span>Undeclared non-dependants</span><br>
-                </label>
-
-                <label class="block-label" for="landlord">
-                  <input id="landlord" type="radio" name="button" value="landlord">
-                  <span>Landlord fraud</span><br>
-                </label>
-
-            </div>
-
-<!--  <div class="form-group">
-{% for check in options %}
-  <label class="block-label" for="{{check.id}}">
-    <input id="{{check.id}}" type="radio"  name="button" value="{{check.value}}" {{check.checked}} />
-    <span>{{check.title}}</span><br>
-  </label>
-{% endfor %}
-</div>-->
-        </fieldset>
+        <p class="bold-medium">Select one of the below</p>
 
         <div class="form-group">
-          <input type="submit" value="Continue" class="button">
-        </div>
-      </form>
 
-    </div>
+
+
+
+          <label class="block-label" for="council">
+            <input id="council" type="radio" name="button" value="council">
+            <span>Council Property</span><br>
+          </label>
+
+          <label class="block-label" for="private">
+            <input id="private" type="radio" name="button" value="private">
+            <span>Private property</span><br>
+          </label>
+
+          <label class="block-label" for="contrived">
+            <input id="contrived" type="radio" name="button" value="contrived">
+            <span>Contrived tenancy</span><br>
+          </label>
+
+          <label class="block-label" for="residence">
+            <input id="residence" type="radio" name="button" value="non-residence">
+            <span>Non-residence</span><br>
+          </label>
+
+          <label class="block-label" for="dependants">
+            <input id="dependants" type="radio" name="button" value="non-dependants">
+            <span>Undeclared non-dependants</span><br>
+          </label>
+
+          <label class="block-label" for="landlord">
+            <input id="landlord" type="radio" name="button" value="landlord">
+            <span>Landlord fraud</span><br>
+          </label>
+
+        </div>
+
+        <!--  <div class="form-group">
+        {% for check in options %}
+        <label class="block-label" for="{{check.id}}">
+        <input id="{{check.id}}" type="radio"  name="button" value="{{check.value}}" {{check.checked}} />
+        <span>{{check.title}}</span><br>
+      </label>
+      {% endfor %}
+    </div>-->
+  </fieldset>
+
+  <div class="form-group">
+    <input href="#" type="submit" value="Continue" class="button">
   </div>
+</form>
+
+</div>
+</div>
 {% endblock %}

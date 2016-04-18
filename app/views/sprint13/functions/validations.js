@@ -272,7 +272,7 @@ var validations = {
       return validation;
     }
 
-    // Validate housing Type
+    // Validate Fraud Type
     if ( req.path == '/housing-type' ) {
       if ( Object.keys(req.body).length === 0 ) {
         validation.status = false;

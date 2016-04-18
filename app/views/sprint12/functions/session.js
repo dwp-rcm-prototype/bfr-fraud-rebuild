@@ -68,7 +68,7 @@ var sessions = {
         }
 
         if ( selection === 'housing' ) {
-          fraud_titles.push({'title':'is claiming housing benefits and...'});
+          fraud_titles.push({'title':'is claiming housing benefits'});
         }
 
         if ( selection === 'other' ) {
@@ -328,7 +328,7 @@ var sessions = {
         }
 
         if ( selection === 'housing' ) {
-          housing_titles.push({'title':'is claiming housing benefits and...'});
+          housing_titles.push({'title':'is claiming housing benefits'});
         }
 
         if ( selection === 'other' ) {
