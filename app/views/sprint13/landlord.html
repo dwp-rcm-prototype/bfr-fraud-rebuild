@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint13/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Landlord fraud</h1>
+
+      <form method="post" class="council">
+
+        <div class="form-group">
+          <fieldset class="{{validate.first_name}}">
+            <div id="firstName-form" class="form-group">
+              <label class="form-label-bold" for="first_name">First name</label>
+              <input type="text" class="form-control" id="first_name" name="first_name" value="{{session.first_name}}">
+            </div>
+          </fieldset>
+
+          <fieldset class="{{validate.last_name}}">
+            <div id="lastName-form" class="form-group   ">
+              <label class="form-label-bold" for="last_name">Last name</label>
+              <input type="text" class="form-control" id="last_name" name="last_name" value="{{session.last_name}}">
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- start of address-->
+        <h2 class="heading-small">Do you know the address used by the landlord?</h2>
+        <div class="form-group">
+          <fieldset class="inline">
+            <label class="block-label" data-target="addressperson_hidden" for="addressperson_hidden_yes">
+              <input id="dob_yes" type="radio" name="addressperson_hidden_select" value="Yes" aria-controls="dob_hidden" aria-expanded="false" {{session.dob_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label {{session.addressperson_hidden_no}}" for="dob_no">
+              <input id="dob_no" type="radio" name="addressperson_hidden_select" value="No" {{session.dob_no}}>
+              No
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden {{validate.addressperson_hidden}}" id="addressperson_hidden" style="display:{{session.addressperson_hidden}}">
+
+              <legend class="form-label-bold" for="addressperson_hidden_form">
+                Address
+
+                <p class="form-hint">
+                  Include at least street and town
+                </p>
+              </legend>
+
+              <div class="form-group">
+                <fieldset>
+                  <div id="firstName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="building">Building name or number</label>
+                    <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound {{validate.street}}">
+                    <label class="form-label" for="street">Street</label>
+                    <input type="text" class="form-control" id="street" name="street" value="{{session.street}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound {{validate.town}}">
+                    <label class="form-label" for="town">Town or city</label>
+                    <input type="text" class="form-control" id="town" name="town" value="{{session.town}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="county">County</label>
+                    <input type="text" class="form-control" id="county" name="county" value="{{session.county}}">
+                  </div>
+
+                  <div id="lastName-form" class="form-group form-group-compound">
+                    <label class="form-label" for="postcode">Postcode</label>
+                    <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          <fieldset/>
+        </div>
+
+
+        <!-- end of address -->
+
+        <a id="submit" type="submit" class="button" value="Continue" href="details-property">Continue</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}
