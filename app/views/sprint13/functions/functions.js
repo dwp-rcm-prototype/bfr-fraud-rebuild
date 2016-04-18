@@ -43,9 +43,9 @@ var functions = {
       build_checkbox(
         req,
         'Housing benefits',
-        'Some text about claiming housing benefits goes here',
+        '',
         'housing',
-        'true'),      
+        'true'),
       build_checkbox(
         req,
         'Dishonestly claiming a disability benefit',
@@ -107,40 +107,40 @@ var functions = {
       build_checkbox(
         req,
         'Council Property',
-        'not declaring that they are working, under reporting the number of hours or the amount they earn, including cash in hand.',
+        '',
         'council',
         'council'
       ),
       build_checkbox(
         req,
         'Private property',
-        'their benefit claim is based on them living alone and they haven’t declared that they now live with a partner. A partner could be someone they are married to, a civil partner or someone they live with as if they were married or in a civil partnership.',
+        '',
         'private',
         'private'
       ),
       build_checkbox(
         req,
         'Contrived tenancy',
-        'they do not really have the disability they are claiming for.',
+        '',
         'contrived',
         'contrived'
       ),
       build_checkbox(
         req,
         'Non-residence',
-        'they aren’t actually providing care, but claiming to do so.',
+        '',
         'residence',
         'residence'
       ),
       build_checkbox(
         req,
         'Undeclared non-dependants',
-        'the person’s benefit claim is based on a UK address and they have not notified the relevant government department that they now live outside the UK.',
+        '',
         'dependance',
         'dependance'),
       build_checkbox(
         req, "Landlord fraud",
-        'the person has based their claim for benefit using someone else’s personal details (this could include their name, date of birth, National Insurance number).',
+        '',
         'landlord',
         'landlord'),
       build_checkbox(
