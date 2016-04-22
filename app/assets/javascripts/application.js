@@ -128,7 +128,7 @@ $(document).ready(function() {
 
 
 $(function(){
-    $(".testingstuff").submit(function(e) {
+    $(".value_housingtypes").submit(function(e) {
         e.preventDefault();
         window.location = $(this).find('input[type="radio"]:checked').val();
     });
