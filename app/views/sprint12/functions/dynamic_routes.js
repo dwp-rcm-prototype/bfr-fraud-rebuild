@@ -36,8 +36,6 @@ var dynamic_routes = {
         urls.next = 'identity';
       } else if ( fraud_urls.income === "true" ) {
         urls.next = 'income';
-      } else if ( fraud_urls.housing === "true" ) {
-        urls.next = 'housing-type';
       } else if ( fraud_urls.other === "true" ) {
         urls.next = 'other';
       }
@@ -59,8 +57,6 @@ var dynamic_routes = {
         urls.next = 'identity';
       } else if ( fraud_urls.income === "true" ) {
         urls.next = 'income';
-      } else if ( fraud_urls.housing === "true" ) {
-        urls.next = 'housing-type';
       } else if ( fraud_urls.other === "true" ) {
         urls.next = 'other';
       } else {
@@ -82,8 +78,6 @@ var dynamic_routes = {
         urls.next = 'identity';
       } else if ( fraud_urls.income === "true" ) {
         urls.next = 'income';
-      } else if ( fraud_urls.housing === "true" ) {
-        urls.next = 'housing-type';
       } else if ( fraud_urls.other === "true" ) {
         urls.next = 'other';
       } else {
@@ -103,12 +97,9 @@ var dynamic_routes = {
         urls.next = 'identity';
       } else if ( fraud_urls.income === "true" ) {
         urls.next = 'income';
-      } else if ( fraud_urls.housing === "true" ) {
-        urls.next = 'housing-type';
-      } else if ( fraud_urls.other === "true" ) {
-        urls.next = 'other';
+
       } else {
-        urls.next = 'additional-information';
+        urls.next = 'review';
       }
     }
 
@@ -122,8 +113,6 @@ var dynamic_routes = {
         urls.next = 'identity';
       } else if ( fraud_urls.income === "true" ) {
         urls.next = 'income';
-      } else if ( fraud_urls.housing === "true" ) {
-        urls.next = 'housing-type';
       } else if ( fraud_urls.other === "true" ) {
         urls.next = 'other';
       } else {
@@ -139,8 +128,6 @@ var dynamic_routes = {
         urls.next = 'identity';
       } else if ( fraud_urls.income === "true" ) {
         urls.next = 'income';
-      } else if ( fraud_urls.housing === "true" ) {
-        urls.next = 'housing-type';
       } else if ( fraud_urls.other === "true" ) {
         urls.next = 'other';
       } else {
@@ -166,68 +153,6 @@ var dynamic_routes = {
       fraud_urls = req.cookies.fraud_urls;
 
       if ( fraud_urls.other === "true" ) {
-        urls.next = 'other';
-      } else {
-        urls.next = 'additional-information';
-      }
-    }
-
-
-    // Housing Type
-    if (req.path === '/housing-type') {
-      housing_urls = req.body;
-
-      if ( housing_urls.council === "true" ) {
-        urls.next = 'council';
-      } else if ( housing_urls.private === "true" ) {
-        urls.next = 'private';
-      } else if ( housing_urls.contrived === "true" ) {
-        urls.next = 'contrived';
-      } else if ( housing_urls.residence === "true" ) {
-        urls.next = 'residence';
-      } else if ( housing_urls.dependance === "true" ) {
-        urls.next = 'dependance';
-      } else if ( housing_urls.landlord === "true" ) {
-        urls.next = 'landlord';
-      } else if ( housing_urls.other === "true" ) {
-        urls.next = 'other';
-      }
-    }
-
-    // council More
-    if (req.path === '/council-more') {
-      housing_urls = req.cookies.housing_urls;
-
-      if ( housing_urls.private === "true" ) {
-        urls.next = 'private';
-      } else if ( housing_urls.contrived === "true" ) {
-        urls.next = 'contrived';
-      } else if ( housing_urls.residence === "true" ) {
-        urls.next = 'residence';
-      } else if ( housing_urls.dependance === "true" ) {
-        urls.next = 'dependance';
-      } else if ( housing_urls.landlord === "true" ) {
-        urls.next = 'landlord';
-      } else if ( housing_urls.other === "true" ) {
-        urls.next = 'other';
-      } else {
-        urls.next = 'review';
-      }
-    }
-
-    // private More
-    if (req.path === '/private') {
-      housing_urls = req.cookies.housing_urls;
-
-      if ( fraud_urls.abroad === "true" ) {
-        urls.next = 'abroad';
-      } else if ( fraud_urls.identity === "true" ) {
-        urls.next = 'identity';
-      } else if ( fraud_urls.income === "true" ) {
-        urls.next = 'income';
-      } else if ( fraud_urls.housing === "true" ) {
-        urls.next = 'housing-type';
-      } else if ( fraud_urls.other === "true" ) {
         urls.next = 'other';
       } else {
         urls.next = 'additional-information';

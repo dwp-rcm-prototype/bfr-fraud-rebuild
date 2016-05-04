@@ -2082,3 +2082,9 @@ input[type=number] {
 #age {
   max-width: 80px;
 }
+
+@media (max-width: 641px) {
+  #helpcontent {
+    display: none;
+  }
+}

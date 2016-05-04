@@ -61,3 +61,7 @@
 }
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+@media (max-width: 641px) {
+	#helpcontent { display: none; }
+}

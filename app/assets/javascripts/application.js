@@ -125,20 +125,3 @@ $(document).ready(function() {
   toggleContent.showHideCheckboxToggledContent();
 
 });
-
-
-$(function(){
-    $(".value_housingtypes").submit(function(e) {
-        e.preventDefault();
-        window.location = $(this).find('input[type="radio"]:checked').val();
-    });
-});
-
-$(function () {
-    $(".repeat").on('click', function (e) {
-        e.preventDefault();
-        var $self = $(this);
-        $self.before($self.prev('div').clone());
-        //$self.remove();
-    });
-});

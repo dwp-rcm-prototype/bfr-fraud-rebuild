@@ -15,7 +15,7 @@
 </div>
 
 <legend class="form-label-bold" for="other_name_form">
-  Do you know them by another name?
+  Do you know them by any other names?
 
   <p class="form-hint">
     For example nickname, professional name or maiden name
@@ -35,8 +35,8 @@
     </label>
 
     <div class="panel panel-border-narrow js-hidden {{validate.other_name}}" id="other_name_hidden" style="display:{{session.show_other_name}}">
-      <label class="form-label-bold" for="other_name">Name</label>
-      <input class="form-control" name="other_name" type="text" id="other_name" value="{{session.other_name}}">
+      <label class="form-label-bold" for="other_name">Other names</label>
+      <textarea class="form-control" name="other_name" type="text" id="other_name" rows="5" value="{{session.other_name}}"></textarea>
     </div>
   </fieldset>
 </div>

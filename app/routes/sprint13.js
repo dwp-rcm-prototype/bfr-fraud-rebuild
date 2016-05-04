@@ -271,31 +271,6 @@ router.post('/partner-employment', function(req, res) {
   });
 // end Income More
 
-// Housing type
-  router.get('/housing-type', function(req, res) {
-    var options = functions.housing_type_get_options(req),
-        session = req.cookies.housing_urls;
-
-    res.render('sprint13/housing-type', {options: options, session: session});
-  });
-
-  router.post('/housing-type', function(req, res) {
-    var options = functions.housing_type_get_options(req),
-        selected = Object.keys(req.body).length,
-        urls = get_routes.urls(req, res),
-        validation = validate.page(req);
-
-    session.update(req, res);
-
-    if ( validation.status === true ) {
-      res.redirect(urls.next);
-    } else {
-      res.render('sprint13/housing-type', {options: options, session: req.body, errors: validation.errors});
-    }
-  });
-// end Housing Type
-
-
 // Additional Information
   router.get('/additional-information', function(req, res) {
     res.render('sprint13/additional-information', {session: session});
@@ -306,7 +281,6 @@ router.post('/partner-employment', function(req, res) {
     res.redirect('review');
   });
 // end Additional Information
-
 
 // Other
   router.get('/other', function(req, res) {

@@ -14,5 +14,5 @@ module.exports = {
   useAuth: 'true',
 
   // Set the current version of the prototype to be the root
-  current_prototype: 'sprint13'
+  current_prototype: 'sprint12'
 };

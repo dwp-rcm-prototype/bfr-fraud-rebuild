@@ -271,39 +271,6 @@ var validations = {
       validation.errors = get_errors('', '', '');
       return validation;
     }
-
-    // Validate housing Type
-    if ( req.path == '/housing-type' ) {
-      if ( Object.keys(req.body).length === 0 ) {
-        validation.status = false;
-        errors = get_errors('', 'You must select at least one option');
-      }
-      validation.errors = get_errors('', '', required);
-      return validation;
-    }
-
-    // Validate council Page
-    if ( req.path == '/council') {
-      if ( req.body.council === '' ) {
-        validation.status = false;
-        validation.why_do_you_think_that = 'error';
-        required.push('Why do you think that?');
-      }
-      validation.errors = get_errors('', '', '');
-      return validation;
-    }
-
-    // Validate private Page
-    if ( req.path == '/private') {
-      if ( req.body.private === '' ) {
-        validation.status = false;
-        validation.why_do_you_think_that = 'error';
-        required.push('Why do you think that?');
-      }
-      validation.errors = get_errors('', '', '');
-      return validation;
-    }
-
   }
 };
 

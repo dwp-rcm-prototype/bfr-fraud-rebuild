@@ -67,10 +67,6 @@ var sessions = {
           fraud_titles.push({'title':'is not declaring savings or other income'});
         }
 
-        if ( selection === 'housing' ) {
-          fraud_titles.push({'title':'is claiming housing benefits'});
-        }
-
         if ( selection === 'other' ) {
           fraud_titles.push({'title':'is committing some type of fraud'});
         }
@@ -291,128 +287,6 @@ var sessions = {
 
       res.cookie('other', req.body);
     }
-
-    // house Type
-    if ( req.path === '/housing-type' ) {
-      var housing_urls = {};
-      var housing_titles = [];
-
-      for ( var selection in req.body ) {
-        housing_urls[selection] = req.body[selection];
-        if ( selection === 'employment' ) {
-          housing_titles.push({'title':'is working and claiming benefit'});
-        }
-
-        if ( selection === 'partner' ) {
-          housing_titles.push({'title':'is living with a partner while claiming to be living alone'});
-        }
-
-        if ( selection === 'disability' ) {
-          housing_titles.push({'title':'is dishonestly claiming disability benefit'});
-        }
-
-        if ( selection === 'carers' ) {
-          housing_titles.push({'title':'is dishonestly claiming carers benefit'});
-        }
-
-        if ( selection === 'abroad' ) {
-          housing_titles.push({'title':'is claiming benefits but not living in the UK'});
-        }
-
-        if ( selection === 'identity' ) {
-          housing_titles.push({'title':"is using someone else's identity"});
-        }
-
-        if ( selection === 'income' ) {
-          housing_titles.push({'title':'is not declaring savings or other income'});
-        }
-
-        if ( selection === 'housing' ) {
-          housing_titles.push({'title':'is claiming housing benefits'});
-        }
-
-        if ( selection === 'other' ) {
-          housing_titles.push({'title':'is committing some type of fraud'});
-        }
-      }
-      res.cookie('housing_urls', housing_urls);
-      res.cookie('housing_titles', housing_titles);
-    }
-
-    // council
-    if ( req.path === '/council' ) {
-      if ( req.body.job_select == 'Yes' ) {
-        req.body.job_yes = 'checked';
-        req.body.job_no = '';
-        req.body.job_hidden_display = "block";
-      } else if ( req.body.job_select == 'No' ) {
-        req.body.job_yes = '';
-        req.body.job_no = 'checked';
-        req.body.job_hidden_display = "hidden";
-      }
-
-      res.cookie('council', req.body);
-    }
-
-    // council-More
-    if ( req.path === '/council-more' ) {
-      if ( req.body.who_select == "Yes" ) {
-        req.body.who_yes = 'checked';
-        req.body.who_no = '';
-        req.body.who_hidden_display = 'block';
-      } else   if ( req.body.who_select == "No" ) {
-        req.body.who_yes = '';
-        req.body.who_no = 'checked';
-        req.body.who_hidden_display = 'hidden';
-      }
-
-      if ( req.body.dob_select == "Yes" ) {
-        req.body.dob_yes = "checked";
-        req.body.dob_hidden_display = "block";
-        req.body.age_hidden_display = "hidden";
-      } else if ( req.body.dob_select == "No" ) {
-        req.body.dob_no = "checked";
-        req.body.dob_hidden_display = "hidden";
-        req.body.age_hidden_display = "block";
-      }
-
-      if ( req.body.address_select == "Yes" ) {
-        req.body.address_yes = "checked";
-        req.body.address_hidden_display = "block";
-      } else if ( req.body.address_select == "No" ) {
-        req.body.address_no = "checked";
-        req.body.address_hidden_display = "hidden";
-      }
-
-      res.cookie('council-more', req.body);
-    }
-
-
-    // contrived
-    if ( req.path === '/contrived' ) {
-      res.cookie('contrived', req.body);
-    }
-
-    // dependance
-    if ( req.path === '/dependance' ) {
-      res.cookie('dependance', req.body);
-    }
-
-    // landlord
-    if ( req.path === '/landlord' ) {
-      res.cookie('landlord', req.body);
-    }
-
-    // private
-    if ( req.path === '/private' ) {
-      res.cookie('private', req.body);
-    }
-
-    // residence
-    if ( req.path === '/residence' ) {
-      res.cookie('residence', req.body);
-    }
-
 
     // Additional Information
     if ( req.path === '/additional-information' ) {
