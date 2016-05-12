@@ -76,17 +76,6 @@
                 </fieldset>
               </div>
 
-              <div class="form-group">
-                <fieldset>
-                  <div class="form-date">
-                    <label class="form-label-bold" for="hours_working_job">
-                      Do you know approximately how many hours per week they work?
-                    </label>
-
-                    <input type="text" class="form-control" id="hours_working_job" name="hours_working_job" value="{{session.what_is_their_job}}">
-                  </div>
-                </fieldset>
-              </div>
 
               <div class="form-group">
                 <fieldset>
@@ -100,6 +89,65 @@
                   </div>
                 </fieldset>
               </div>
+
+              <h2 class="heading-small">Do you know approximately how many hours per week they work?</h2>
+              <fieldset class="inline">
+                <div class="form-group">
+                  <label class="block-label" data-target="job_hourswork" for="job_hoursyes">
+                    <input id="job_hoursyes" type="radio" name="job_hours" value="Yes" aria-controls="job_hourswork" aria-expanded="false" {{session.job_yes}}>
+                    Yes
+                  </label>
+
+                  <label class="block-label" data-target="approximate_age_hidden" for="job_hoursno" {{session.job_no}}>
+                    <input id="job_hoursno" type="radio" name="job_hours" value="No">
+                    No
+                  </label>
+
+                  <div class="panel panel-border-narrow js-hidden" id="job_hourswork" style="display:{{session.hours_work_display}}">
+                    <div class="form-group">
+                      <fieldset>
+                        <div class="form-date">
+                          <label class="form-label-bold" for="what_is_their_job">
+                            Hours worked
+                          </label>
+
+                          <input type="text" class="form-control" id="what_is_their_job" name="what_is_their_job" value="{{session.what_is_their_job}}">
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <h2 class="heading-small">Do you know approximately how much they earn per week?</h2>
+              <fieldset class="inline">
+                <div class="form-group">
+                  <label class="block-label" data-target="job_earnwork" for="job_earnyes">
+                    <input id="job_earnyes" type="radio" name="job_earn" value="Yes" aria-controls="job_hourswork" aria-expanded="false" {{session.job_yes}}>
+                    Yes
+                  </label>
+
+                  <label class="block-label" data-target="approximate_age_hidden" for="job_earnno" {{session.job_no}}>
+                    <input id="job_earnno" type="radio" name="job_earn" value="No">
+                    No
+                  </label>
+
+                  <div class="panel panel-border-narrow js-hidden" id="job_earnwork" style="display:{{session.earn_work_display}}">
+                    <div class="form-group">
+                      <fieldset>
+                        <div class="form-date">
+                          <label class="form-label-bold" for="what_is_their_job">
+                            Weekly amount
+                          </label>
+
+                          <input type="text" class="form-control" id="what_is_their_job" name="what_is_their_job" value="{{session.what_is_their_job}}">
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
             </div>
           </div>
         </fieldset>
