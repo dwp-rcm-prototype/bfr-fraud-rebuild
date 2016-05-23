@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint12/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+
+<div class="grid-row">
+
+       <div class="column-two-thirds">
+         <h1 class="heading-xlarge">What is the person doing?</h1>
+
+         <form method="post" action="fraud-type">
+           <fieldset>
+             <legend class="visuallyhidden" for="form-group-details">
+               Select all that apply
+             </legend>
+
+             <p class="bold-medium">Select one or more</p>
+
+             <div class="form-group">
+
+                 <label class="block-label" for="employment">
+                   <input id="employment" type="checkbox" name="employment" value="true">
+                   <span class="heading-small">They own the property</span>
+                 </label>
+
+                 <label class="block-label" for="partner">
+                   <input id="partner" type="checkbox" name="partner" value="true">
+                   <span class="heading-small">They live with people who are not dependants</span>
+                 </label>
+
+                 <label class="block-label" for="disability">
+                   <input id="disability" type="checkbox" name="disability" value="true">
+                   <span class="heading-small">They dont live there (or only visit occasionally)</span>
+                 </label>
+
+                 <label class="block-label" for="carers">
+                   <input id="carers" type="checkbox" name="carers" value="true">
+                   <span class="heading-small">They have the same name as the landlord</span>
+                 </label>
+
+                 <label class="block-label selected" for="abroad">
+                   <input id="abroad" type="checkbox" name="abroad" value="true" checked="">
+                   <span class="heading-small">They claim they are living alone</span>
+                 </label>
+
+                 <label class="block-label" for="identity">
+                   <input id="identity" type="checkbox" name="identity" value="true">
+                   <span class="heading-small">They receive rent from others at property</span>
+                 </label>
+
+                 <label class="block-label" for="income">
+                   <input id="income" type="checkbox" name="income" value="true">
+                   <span class="heading-small">They have left the property permanently</span>
+                 </label>
+
+                 <label class="block-label" for="other">
+                   <input id="other" type="checkbox" name="other" value="true">
+                   <span class="heading-small">Other fraud</span>
+
+                 </label>
+
+             </div>
+           </fieldset>
+
+           <input type="submit" value="Continue" class="button">
+         </form>
+       </div>
+     </div>
+
+{% endblock %}

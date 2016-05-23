@@ -1,0 +1,404 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint12/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+  	<h1 class="heading-xlarge">Change to people living at address/property</h1>
+
+  	<form method="post" action="abroad">
+  		<h2 class="heading-small">Have they:</h2>
+
+      <div class="form-group inline">
+  			<label class="block-label" data-target="housebene_joined_hidden" for="housebene_joined_yes">
+  			<input id="housebene_joined_yes" type="radio" name="housebene_select" value="yes" aria-controls="housebene_joined__hidden" aria-expanded="true">
+  			Joined address
+  			</label>
+  			<label class="block-label" data-target="housebene_left_hidden"  for="housebene_left_no">
+  			<input id="housebene_left_no" type="radio" name="housebene_select" value="no"  aria-controls="housebene_left_hidden" aria-expanded="true">
+  			Left address
+  			</label>
+  		</div>
+
+  		<div class="panel panel-border-narrow js-hidden " id="housebene_joined_hidden" style="display:{{session.housebene_joined_hidden}};">
+  			<div class="form-group ">
+  				<fieldset id="address-form">
+  					<div class="form-group">
+  						<fieldset class="">
+  							<div id="firstName-form" class="form-group">
+  								<label class="form-label-bold" for="first_name">First name</label>
+  								<input type="text" class="form-control" id="first_name" name="first_name" value="">
+  							</div>
+  						</fieldset>
+  					</div>
+  					<div class="form-group">
+  						<fieldset class="">
+  							<div id="LastName-form" class="form-group">
+  								<label class="form-label-bold" for="last_name">Last name</label>
+  								<input type="text" class="form-control" id="last_name" name="last_name" value="">
+  							</div>
+  						</fieldset>
+  					</div>
+  					<div class="form-group">
+  						<fieldset class="">
+  							<div id="LastName-form" class="form-group">
+  								<label class="form-label-bold" for="last_name">Relationship?</label>
+  								<p class="form-hint">For example, brother, sister, mother, lodger, owner</p>
+  								<input type="text" class="form-control" id="last_name" name="last_name" value="">
+  							</div>
+  						</fieldset>
+  					</div>
+  					<div class="form-group">
+  						<fieldset class="">
+  							<div id="firstName-form" class="form-group">
+  								<label class="form-label-bold" for="first_name">When did they join the address/property?</label>
+  								<input type="text" class="form-control" id="first_name" name="first_name" value="">
+  							</div>
+  						</fieldset>
+  					</div>
+  					<div class="form-group">
+  						<fieldset class="">
+  							<div id="firstName-form" class="form-group">
+  								<label class="form-label-bold" for="first_name">How long has this been going on?</label>
+  								<input type="text" class="form-control" id="first_name" name="first_name" value="">
+  							</div>
+  						</fieldset>
+  					</div>
+  				</fieldset>
+
+    			<h2 class="heading-small">Anyone else involved?</h2>
+    			<div class="form-group inline">
+    				<label class="block-label" data-target="anyone_joined_yes_hidden" for="anyone_joined_yes">
+    				<input id="anyone_joined_yes" type="radio" name="anyone_joined" value="yes" aria-controls="anyone_joined_yes_hidden" aria-expanded="true">
+    				Yes
+    				</label>
+    				<label class="block-label" data-target="abroadadress_hidden_extra"  for="anyone_joined_no">
+    				<input id="abroadadress_no" type="radio" name="anyone_joined" value="no"  aria-controls="abroadadress_hidden_extra" aria-expanded="false">
+    				No
+    				</label>
+    			</div>
+
+    			<div class="panel panel-border-narrow js-hidden " id="anyone_joined_yes_hidden" style="display:{{session.anyone_joined_yes_hidden}};">
+    				<div class="form-group ">
+    					<fieldset id="address-form">
+    						<h2 class="heading-small">Have they:</h2>
+    						<div class="form-group inline">
+    							<label class="block-label" data-target="anyoneelse_joined_hidden" for="anyoneelse_joined_yes">
+    							<input id="anyoneelse_joined_yes" type="radio" name="anyoneelse_select" value="yes" aria-controls="anyoneelse_joined__hidden" aria-expanded="true">
+    							Joined address
+    							</label>
+    							<label class="block-label" data-target="anyoneelse_left_hidden"  for="anyoneelse_left_no">
+    							<input id="anyoneelse_left_no" type="radio" name="anyoneelse_select" value="no"  aria-controls="anyoneelse_left_hidden" aria-expanded="false">
+    							Left address
+    							</label>
+    						</div>
+
+    						<div class="panel panel-border-narrow js-hidden " id="anyoneelse_joined_hidden" style="display:{{session.anyoneelse_joined_hidden}};">
+    							<div class="form-group ">
+    								<fieldset id="address-form">
+    									<div class="form-group">
+    										<fieldset class="">
+    											<div id="firstName-form" class="form-group">
+    												<label class="form-label-bold" for="first_name">First name</label>
+    												<input type="text" class="form-control" id="first_name" name="first_name" value="">
+    											</div>
+    										</fieldset>
+    									</div>
+    									<div class="form-group">
+    										<fieldset class="">
+    											<div id="LastName-form" class="form-group">
+    												<label class="form-label-bold" for="last_name">Last name</label>
+    												<input type="text" class="form-control" id="last_name" name="last_name" value="">
+    											</div>
+    										</fieldset>
+    									</div>
+    									<div class="form-group">
+    										<fieldset class="">
+    											<div id="LastName-form" class="form-group">
+    												<label class="form-label-bold" for="last_name">Relationship?</label>
+    												<p class="form-hint">For example, brother, sister, mother, lodger, owner</p>
+    												<input type="text" class="form-control" id="last_name" name="last_name" value="">
+    											</div>
+    										</fieldset>
+    									</div>
+    									<div class="form-group">
+    										<fieldset class="">
+    											<div id="firstName-form" class="form-group">
+    												<label class="form-label-bold" for="first_name">When did they join the address/property?</label>
+    												<input type="text" class="form-control" id="first_name" name="first_name" value="">
+    											</div>
+    										</fieldset>
+    									</div>
+    									<div class="form-group">
+    										<fieldset class="">
+    											<div id="firstName-form" class="form-group">
+    												<label class="form-label-bold" for="first_name">How long has this been going on?</label>
+    												<input type="text" class="form-control" id="first_name" name="first_name" value="">
+    											</div>
+    										</fieldset>
+    									</div>
+    								</fieldset>
+    							</div>
+    						</div>
+
+      			<div class="panel panel-border-narrow js-hidden " id="anyoneelse_left_hidden" style="display:{{session.anyoneelse_left_hidden}};">
+      				<div class="form-group ">
+      					<fieldset id="address-form">
+      						<div class="form-group">
+      							<fieldset class="">
+      								<div id="firstName-form" class="form-group">
+      									<label class="form-label-bold" for="first_name">First name</label>
+      									<input type="text" class="form-control" id="first_name" name="first_name" value="">
+      								</div>
+      							</fieldset>
+      						</div>
+      						<div class="form-group">
+      							<fieldset class="">
+      								<div id="LastName-form" class="form-group">
+      									<label class="form-label-bold" for="last_name">Last name</label>
+      									<input type="text" class="form-control" id="last_name" name="last_name" value="">
+      								</div>
+      							</fieldset>
+      						</div>
+      						<div class="form-group">
+      							<fieldset class="">
+      								<div id="LastName-form" class="form-group">
+      									<label class="form-label-bold" for="last_name">Relationship?</label>
+      									<p class="form-hint">For example, brother, sister, mother, lodger, owner</p>
+      									<input type="text" class="form-control" id="last_name" name="last_name" value="">
+      								</div>
+      							</fieldset>
+      						</div>
+      						<div class="form-group">
+      							<fieldset class="">
+      								<div id="firstName-form" class="form-group">
+      									<label class="form-label-bold" for="first_name">When did they leave the address/property?</label>
+      									<input type="text" class="form-control" id="first_name" name="first_name" value="">
+      								</div>
+      							</fieldset>
+      						</div>
+      						<div class="form-group">
+      							<fieldset class="">
+      								<div id="firstName-form" class="form-group">
+      									<label class="form-label-bold" for="first_name">How long has this been going on?</label>
+      									<input type="text" class="form-control" id="first_name" name="first_name" value="">
+      								</div>
+      							</fieldset>
+      						</div>
+      						<div class="form-group">
+      							<fieldset class="">
+      								<div id="firstName-form" class="form-group">
+      									<label class="form-label-bold" for="first_name">Where did they go?</label>
+      									<input type="text" class="form-control" id="first_name" name="first_name" value="">
+      								</div>
+      							</fieldset>
+      						</div>
+      					</fieldset>
+      				</div>
+      			</div>
+          </fieldset>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-border-narrow js-hidden " id="housebene_joined_hidden" style="display:{{session.housebene_joined_hidden}};">
+      <div class="form-group ">
+        <fieldset id="address-form">
+          <div class="form-group">
+            <fieldset class="">
+              <div id="firstName-form" class="form-group">
+                <label class="form-label-bold" for="first_name">First name</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" value="">
+              </div>
+            </fieldset>
+          </div>
+          <div class="form-group">
+            <fieldset class="">
+              <div id="LastName-form" class="form-group">
+                <label class="form-label-bold" for="last_name">Last name</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" value="">
+              </div>
+            </fieldset>
+          </div>
+          <div class="form-group">
+            <fieldset class="">
+              <div id="LastName-form" class="form-group">
+                <label class="form-label-bold" for="last_name">Relationship?</label>
+                <p class="form-hint">For example, brother, sister, mother, lodger, owner</p>
+                <input type="text" class="form-control" id="last_name" name="last_name" value="">
+              </div>
+            </fieldset>
+          </div>
+          <div class="form-group">
+            <fieldset class="">
+              <div id="firstName-form" class="form-group">
+                <label class="form-label-bold" for="first_name">When did they join the address/property?</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" value="">
+              </div>
+            </fieldset>
+          </div>
+          <div class="form-group">
+            <fieldset class="">
+              <div id="firstName-form" class="form-group">
+                <label class="form-label-bold" for="first_name">How long has this been going on?</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" value="">
+              </div>
+            </fieldset>
+          </div>
+        </fieldset>
+
+        <h2 class="heading-small">Anyone else involved?</h2>
+        <div class="form-group inline">
+          <label class="block-label" data-target="anyone_joined_yes_hidden" for="anyone_joined_yes">
+          <input id="anyone_joined_yes" type="radio" name="anyone_joined" value="yes" aria-controls="anyone_joined_yes_hidden" aria-expanded="true">
+          Yes
+          </label>
+          <label class="block-label" data-target="abroadadress_hidden_extra"  for="anyone_joined_no">
+          <input id="abroadadress_no" type="radio" name="anyone_joined" value="no"  aria-controls="abroadadress_hidden_extra" aria-expanded="false">
+          No
+          </label>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden " id="anyone_joined_yes_hidden" style="display:{{session.anyone_joined_yes_hidden}};">
+          <div class="form-group ">
+            <fieldset id="address-form">
+              <h2 class="heading-small">Have they:</h2>
+              <div class="form-group inline">
+                <label class="block-label" data-target="anyoneelse_joined_hidden" for="anyoneelse_joined_yes">
+                <input id="anyoneelse_joined_yes" type="radio" name="anyoneelse_select" value="yes" aria-controls="anyoneelse_joined__hidden" aria-expanded="true">
+                Joined address
+                </label>
+                <label class="block-label" data-target="anyoneelse_left_hidden"  for="anyoneelse_left_no">
+                <input id="anyoneelse_left_no" type="radio" name="anyoneelse_select" value="no"  aria-controls="anyoneelse_left_hidden" aria-expanded="false">
+                Left address
+                </label>
+              </div>
+
+              <div class="panel panel-border-narrow js-hidden " id="anyoneelse_joined_hidden" style="display:{{session.anyoneelse_joined_hidden}};">
+                <div class="form-group ">
+                  <fieldset id="address-form">
+                    <div class="form-group">
+                      <fieldset class="">
+                        <div id="firstName-form" class="form-group">
+                          <label class="form-label-bold" for="first_name">First name</label>
+                          <input type="text" class="form-control" id="first_name" name="first_name" value="">
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="form-group">
+                      <fieldset class="">
+                        <div id="LastName-form" class="form-group">
+                          <label class="form-label-bold" for="last_name">Last name</label>
+                          <input type="text" class="form-control" id="last_name" name="last_name" value="">
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="form-group">
+                      <fieldset class="">
+                        <div id="LastName-form" class="form-group">
+                          <label class="form-label-bold" for="last_name">Relationship?</label>
+                          <p class="form-hint">For example, brother, sister, mother, lodger, owner</p>
+                          <input type="text" class="form-control" id="last_name" name="last_name" value="">
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="form-group">
+                      <fieldset class="">
+                        <div id="firstName-form" class="form-group">
+                          <label class="form-label-bold" for="first_name">When did they join the address/property?</label>
+                          <input type="text" class="form-control" id="first_name" name="first_name" value="">
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="form-group">
+                      <fieldset class="">
+                        <div id="firstName-form" class="form-group">
+                          <label class="form-label-bold" for="first_name">How long has this been going on?</label>
+                          <input type="text" class="form-control" id="first_name" name="first_name" value="">
+                        </div>
+                      </fieldset>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+
+          <div class="panel panel-border-narrow js-hidden " id="housebene_left_hidden" style="display:{{session.housebene_left_hidden}};">
+            <div class="form-group ">
+              <fieldset id="address-form">
+                <div class="form-group">
+                  <fieldset class="">
+                    <div id="firstName-form" class="form-group">
+                      <label class="form-label-bold" for="first_name">First name</label>
+                      <input type="text" class="form-control" id="first_name" name="first_name" value="">
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset class="">
+                    <div id="LastName-form" class="form-group">
+                      <label class="form-label-bold" for="last_name">Last name</label>
+                      <input type="text" class="form-control" id="last_name" name="last_name" value="">
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset class="">
+                    <div id="LastName-form" class="form-group">
+                      <label class="form-label-bold" for="last_name">Relationship?</label>
+                      <p class="form-hint">For example, brother, sister, mother, lodger, owner</p>
+                      <input type="text" class="form-control" id="last_name" name="last_name" value="">
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset class="">
+                    <div id="firstName-form" class="form-group">
+                      <label class="form-label-bold" for="first_name">When did they leave the address/property?</label>
+                      <input type="text" class="form-control" id="first_name" name="first_name" value="">
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset class="">
+                    <div id="firstName-form" class="form-group">
+                      <label class="form-label-bold" for="first_name">How long has this been going on?</label>
+                      <input type="text" class="form-control" id="first_name" name="first_name" value="">
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset class="">
+                    <div id="firstName-form" class="form-group">
+                      <label class="form-label-bold" for="first_name">Where did they go?</label>
+                      <input type="text" class="form-control" id="first_name" name="first_name" value="">
+                    </div>
+                  </fieldset>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      </div>
+    </div>
+    </div>
+
+
+			<fieldset>
+				<div class="form-group">
+					<label class="form-label-bold" for="additional_info">Additional information</label>
+					<p class="form-hint">For example, amount of rent, vehicle details, name of locations visited, other people involved</p>
+					<textarea class="form-control form-control-3-4" rows="5" id="additional_info" name="additional_info">{{session.additional_info}}</textarea>
+				</div>
+			</fieldset>
+			<input id="submit" type="submit" class="button" value="Continue">
+	</form>
+	</div>
+</div>
+
+{% endblock %}
