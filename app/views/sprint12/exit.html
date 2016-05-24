@@ -10,22 +10,22 @@
       {% if exit_warning.status %}
 
         <h1 id="exit_warning_h1" class="heading-medium">
-          Sorry, you can’t continue.
-          <span id="more_info_needed">
-            {{exit_warning.needed}}
-          </span>
+          You haven't given enough information.
         </h1>
 
         <div id="exit_warning" class="panel panel-border-narrow indent-info-blue">
           <p class="text">
-            To complete and send a report you need to give enough information to identify the person. It’s not possible to investigate someone without it.
+            Sorry, we wouldn't be able to find this person with the information you have given.
           </p>
         </div>
 
-        <a href="/sprint12/feedback" id="exit_warning_feedback">
+        <p>To help us find them, do you also know their <span id="more_info_needed">{{exit_warning.needed}}</span></p>
+        <!--<p><a class="button" href="/sprint12/details" role="button">Start again</a></p>-->
+        <p><a href="/sprint12/feedback" id="exit_warning_feedback">
           What did you think of this service? (takes 30 seconds)
-        </a>
+        </a></p>
       {% else %}
+
         <h1 class="heading-xlarge">You haven’t given enough information</h1>
 
         <p class="lede">

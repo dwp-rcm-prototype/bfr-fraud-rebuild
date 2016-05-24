@@ -70,7 +70,7 @@ var functions = {
         'Not declaring savings or other non-work related income',
         'when the person hasn’t declared other non-work related income, such as savings, inheritance, winnings, property, pensions or compensation.',
         'income',
-        'true'),        
+        'true'),
       build_checkbox(
         req,
         'None of the above',
@@ -110,11 +110,11 @@ var functions = {
     var needed = '';
 
     if ( needed_array.length === 1 ) {
-      needed = needed_array[0].title + ' is needed.';
+      needed = needed_array[0].title + '?';
     } else if ( needed_array.length === 2 ) {
-      needed = needed_array[0].title + ' and ' + needed_array[1].title + ' needed.';
+      needed = needed_array[0].title + ' and ' + needed_array[1].title + '?';
     } else if ( needed_array.length === 3 ) {
-      needed = needed_array[0].title + ', ' + needed_array[1].title + ' and ' + needed_array[2].title + ' are needed.';
+      needed = needed_array[0].title + ', ' + needed_array[1].title + ' and ' + needed_array[2].title + '?';
     }
 
     return needed;

@@ -11,6 +11,18 @@
          <h1 class="heading-xlarge">Claiming benefits while not living in the UK</h1>
 
    <form method="post" action="abroad">
+
+     <h2 class="heading-small">Which country have they gone to abroad?</h2>
+
+     <div id="postcode-form" class="form-group form-group-end  ">
+       <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
+     </div>
+
+       <div id="return-form" class="form-group   ">
+         <label class="form-label-bold" for="return">Can you give any details of their abroad address if known</label>
+         <textarea type="text" class="form-control form-control-3-4" rows="5" id="return" name="return" value=""></textarea>
+       </div>
+
      <h2 class="heading-small">Have they moved abroad permanently?</h2>
 
      <div class="form-group inline">
@@ -31,135 +43,155 @@
 
      </div>
 
-        <div id="return-form" class="form-group   ">
+     <h2 class="heading-small">Do they own or rent out the property abroad?</h2>
+
+     <div class="form-group inline">
+       <label class="block-label " data-target="propertyabroad_yes" for="propertyabroad_yes">
+         <input id="propertyabroad_yes" type="radio" name="propertyabroad_select" value="Yes" aria-controls="propertyabroad_hidden" aria-expanded="true">
+         Own
+       </label>
+
+       <label class="block-label" for="propertyabroad_no">
+         <input id="propertyabroad_no" type="radio" name="propertyabroad_select" value="No" aria-expanded="false">
+         Rent out
+       </label>
+
+       <label class="block-label" for="propertyabroad_no">
+         <input id="propertyabroad_no" type="radio" name="propertyabroad_select" value="No" aria-expanded="false">
+         I dont know
+       </label>
+     </div>
+
+     <div id="return-form" class="form-group">
+       <label class="form-label-bold" for="return">When did they leave the UK?</label>
+       <input type="text" class="form-control" id="return" name="return" value="">
+     </div>     
+
+     <h2 class="heading-small">Do you know their UK address?</h2>
+
+     <div class="form-group inline">
+       <label class="block-label" for="ukadress_yes"  data-target="ukadress_hidden">
+         <input id="ukadress_yes" type="radio" name="ukadress_select" value="yes" aria-controls="ukadress_abroad_hidden" aria-expanded="true">
+         Yes
+       </label>
+
+       <label class="block-label" for="ukadress_no">
+         <input id="ukadress_no" type="radio" name="ukadress_select" value="no" aria-expanded="false">
+         No
+       </label>
+
+     </div>
+
+     <div class="panel panel-border-narrow js-hidden " id="ukadress_hidden" style="display:{{session.ukadress_abroad_hidden}};">
+       <div class="form-group ">
+
+         <h2 class="heading-small">Have you already given this address at the beginning?</h2>
+
+         <div class="form-group inline">
+           <label class="block-label" for="ukgivenadress_yes">
+             <input id="ukgivenadress_yes" type="radio" name="ukgivenadress_select" value="No" aria-expanded="false">
+             Yes
+           </label>
+
+           <label class="block-label" data-target="ukgivenadress_hidden"  for="ukgivenadress_no">
+             <input id="ukgivenadress_no" type="radio" name="ukgivenadress_select" value="Yes" aria-controls="ukgivenadress_hidden" aria-expanded="true">
+             No
+           </label>
+
+         </div>
+
+         <div class="panel panel-border-narrow js-hidden " id="ukgivenadress_hidden" style="display:{{session.ukgivenadress_abroad_hidden}};">
+           <div class="form-group">
+
+             <fieldset id="address-form">
+               <legend class="form-label-bold" for="address-form">UK Address</legend>
+               <p class="form-hint">Include at least street and town</p>
+
+               <div id="buildingNumber-form" class="form-group form-group-compound">
+                 <label class="form-label" for="building">Building name or number</label>
+                 <input type="text" class="form-control no-error " id="building" name="building" value="{{session.building}}">
+               </div>
+
+               <div id="street-form" class="form-group form-group-compound {{validate.street}}">
+                 <label class="form-label" for="street">Street</label>
+                 <input type="text" class="form-control no-error " id="street" name="street" value="{{session.street}}">
+               </div>
+
+               <div id="town-form" class="form-group form-group-compound {{validate.town}}">
+                 <label class="form-label" for="town">Town or city</label>
+                 <input type="text" class="form-control no-error " id="town" name="town" value="{{session.town}}">
+               </div>
+
+               <div id="county-form" class="form-group form-group-compound">
+                 <label class="form-label" for="county">County</label>
+                 <input type="text" class="form-control no-error" id="county" name="county" value="{{session.county}}">
+               </div>
+
+               <div id="postcode-form" class="form-group form-group-end  ">
+                 <label class="form-label" for="postcode">Postcode</label>
+                 <input type="text" class="form-control no-error  form-control-1-4" id="postcode" name="postcode" value="{{session.postcode}}">
+               </div>
+             </fieldset>
+
+           </div>
+         </div>
+
+       </div>
+     </div>
+
+
+      <!--  <div id="return-form" class="form-group   ">
           <label class="form-label-bold" for="return">Where did they leave from (airport name and ferryport name etc)?</label>
           <input type="text" class="form-control" id="return" name="return" value="">
         </div>
+      -->
 
-        <div id="return-form" class="form-group">
-          <label class="form-label-bold" for="return">How often do they return to the UK?</label>
-          <input type="text" class="form-control" id="return" name="return" value="">
-        </div>
 
-        <div id="return-form" class="form-group">
-          <label class="form-label-bold" for="return">When are they next due back in the UK?</label>
-          <input type="text" class="form-control" id="return" name="return" value="">
-        </div>
+      <h2 class="heading-small">Do they return to the UK?</h2>
 
-            <div class="form-group">
-              <fieldset class="">
-                <div id="firstName-form">
-                  <label class="form-label-bold" for="first_name">Can you give details about why they return to the UK?</label>
-                  <textarea type="text" class="form-control form-control-3-4" rows="5" id="first_name" name="first_name" value=""></textarea>
-                </div>
-              </fieldset>
+      <div class="form-group inline">
+        <label class="block-label" for="returntoUK_yes"  data-target="returntoUK_hidden">
+          <input id="returntoUK_yes" type="radio" name="returntoUK_select" value="yes" aria-controls="returntoUK_hidden" aria-expanded="true">
+          Yes
+        </label>
+
+        <label class="block-label" for="returntoUK_no">
+          <input id="returntoUK_no" type="radio" name="returntoUK_select" value="no" aria-expanded="false">
+          No
+        </label>
+
+      </div>
+
+      <div class="panel panel-border-narrow js-hidden " id="returntoUK_hidden" style="display:{{session.returntoUK_hidden}};">
+        <div class="form-group">
+
+          <div class="form-group">
+            <div id="firstName-form">
+              <label class="form-label-bold" for="first_name">How often do they return to the UK?</label>
+              <input type="text" class="form-control" rows="5" id="first_name" name="first_name" value="">
             </div>
+          </div>
 
-
-        <h2 class="heading-small">Do you know their UK address?</h2>
-
-        <div class="form-group inline">
-          <label class="block-label" for="ukadress_yes"  data-target="ukadress_hidden">
-            <input id="ukadress_yes" type="radio" name="ukadress_select" value="yes" aria-controls="ukadress_abroad_hidden" aria-expanded="true">
-            Yes
-          </label>
-
-          <label class="block-label" for="ukadress_no">
-            <input id="ukadress_no" type="radio" name="ukadress_select" value="no" aria-expanded="false">
-            No
-          </label>
-
-        </div>
-
-        <div class="panel panel-border-narrow js-hidden " id="ukadress_hidden" style="display:{{session.ukadress_abroad_hidden}};">
-          <div class="form-group ">
-
-            <h2 class="heading-small">Have you already given this address at the beginning?</h2>
-
-            <div class="form-group inline">
-              <label class="block-label" for="ukgivenadress_yes">
-                <input id="ukgivenadress_yes" type="radio" name="ukgivenadress_select" value="No" aria-expanded="false">
-                Yes
-              </label>
-
-              <label class="block-label" data-target="ukgivenadress_hidden"  for="ukgivenadress_no">
-                <input id="ukgivenadress_no" type="radio" name="ukgivenadress_select" value="Yes" aria-controls="ukgivenadress_hidden" aria-expanded="true">
-                No
-              </label>
-
+          <div class="form-group">
+            <div id="firstName-form">
+              <label class="form-label-bold" for="first_name">When are they next due back in the UK?</label>
+              <input type="text" class="form-control" rows="5" id="first_name" name="first_name" value="">
             </div>
+          </div>
 
-            <div class="panel panel-border-narrow js-hidden " id="ukgivenadress_hidden" style="display:{{session.ukgivenadress_abroad_hidden}};">
-              <div class="form-group">
-
-                <fieldset id="address-form">
-                  <legend class="form-label-bold" for="address-form">UK Address</legend>
-                  <p class="form-hint">Include at least street and town</p>
-
-                  <div id="buildingNumber-form" class="form-group form-group-compound">
-                    <label class="form-label" for="building">Building name or number</label>
-                    <input type="text" class="form-control no-error " id="building" name="building" value="{{session.building}}">
-                  </div>
-
-                  <div id="street-form" class="form-group form-group-compound {{validate.street}}">
-                    <label class="form-label" for="street">Street</label>
-                    <input type="text" class="form-control no-error " id="street" name="street" value="{{session.street}}">
-                  </div>
-
-                  <div id="town-form" class="form-group form-group-compound {{validate.town}}">
-                    <label class="form-label" for="town">Town or city</label>
-                    <input type="text" class="form-control no-error " id="town" name="town" value="{{session.town}}">
-                  </div>
-
-                  <div id="county-form" class="form-group form-group-compound">
-                    <label class="form-label" for="county">County</label>
-                    <input type="text" class="form-control no-error" id="county" name="county" value="{{session.county}}">
-                  </div>
-
-                  <div id="postcode-form" class="form-group form-group-end  ">
-                    <label class="form-label" for="postcode">Postcode</label>
-                    <input type="text" class="form-control no-error  form-control-1-4" id="postcode" name="postcode" value="{{session.postcode}}">
-                  </div>
-                </fieldset>
-
+          <div class="form-group">
+            <fieldset class="">
+              <div id="firstName-form">
+                <label class="form-label-bold" for="first_name">Can you give details about why they return to the UK?</label>
+                <textarea type="text" class="form-control form-control-3-4" rows="5" id="first_name" name="first_name" value=""></textarea>
               </div>
-            </div>
-
-          </div>
-        </div>
-
-        <h2 class="heading-small">Which country have they gone to abroad?</h2>
-
-        <div id="postcode-form" class="form-group form-group-end  ">
-          <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
-        </div>
-
-          <div id="return-form" class="form-group   ">
-            <label class="form-label-bold" for="return">Can you give any details of their abroad address if known</label>
-            <textarea type="text" class="form-control form-control-3-4" rows="5" id="return" name="return" value=""></textarea>
+            </fieldset>
           </div>
 
-
-
-        <h2 class="heading-small">Do they own or rent out the property abroad?</h2>
-
-        <div class="form-group inline">
-          <label class="block-label " data-target="propertyabroad_yes" for="propertyabroad_yes">
-            <input id="propertyabroad_yes" type="radio" name="propertyabroad_select" value="Yes" aria-controls="propertyabroad_hidden" aria-expanded="true">
-            Own
-          </label>
-
-          <label class="block-label" for="propertyabroad_no">
-            <input id="propertyabroad_no" type="radio" name="propertyabroad_select" value="No" aria-expanded="false">
-            Rent
-          </label>
-
-          <label class="block-label" for="propertyabroad_no">
-            <input id="propertyabroad_no" type="radio" name="propertyabroad_select" value="No" aria-expanded="false">
-            I dont know
-          </label>
         </div>
+      </div>
 
+<!--
         <h2 class="heading-small">Do you know if they own a vehicle abroad?</h2>
 
         <div class="form-group inline">
@@ -175,6 +207,7 @@
 
           </div>
 
+
           <div class="panel panel-border-narrow js-hidden " id="ownvehicle_hidden" aria-hidden="false">
 
             <div class="form-group">
@@ -184,7 +217,7 @@
             </div>
 
           </div>
-
+-->
         <input id="submit" type="submit" class="button" value="Continue">
       </form>
     </div>
