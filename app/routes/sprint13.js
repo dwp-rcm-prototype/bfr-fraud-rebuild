@@ -282,6 +282,17 @@ router.post('/partner-employment', function(req, res) {
   });
 // end Additional Information
 
+// Additional Information
+  router.get('/letusknow-letusknow', function(req, res) {
+    res.render('sprint13/letusknow-letusknow', {session: session});
+  });
+
+  router.post('/letusknow-letusknow', function(req, res) {
+    session.update(req, res);
+    res.redirect('review-ub');
+  });
+// end Additional Information
+
 // Other
   router.get('/other', function(req, res) {
     var session = req.cookies.other;

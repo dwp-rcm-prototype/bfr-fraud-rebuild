@@ -159,6 +159,17 @@ var dynamic_routes = {
       }
     }
 
+    // exit More
+    if (req.path === '/exit') {
+      fraud_urls = req.cookies.fraud_urls;
+
+      if ( fraud_urls.other === "true" ) {
+        urls.next = 'other';
+      } else {
+        urls.next = 'review-ub';
+      }
+    }
+
     return urls;
   },
 };

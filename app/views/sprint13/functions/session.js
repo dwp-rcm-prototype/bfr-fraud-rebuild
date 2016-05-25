@@ -310,6 +310,7 @@ var sessions = {
       }
 
       res.cookie('details', details);
+
     }
   }
 };
