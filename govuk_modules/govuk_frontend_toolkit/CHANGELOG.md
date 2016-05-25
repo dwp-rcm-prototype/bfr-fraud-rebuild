@@ -1,3 +1,18 @@
+# 4.12.0
+
+- Increase button padding to match padding from GOV.UK elements (PR #275).
+If you have UI which depends on the padding set by the button mixin in the frontend toolkit and this is not overridden by button padding set by GOV.UK elements, this change will affect it.
+
+# 4.11.0
+
+- Remove the GDS-Logo font-face definition (PR #272)
+- Move the @viewport statements to govuk_template (PR #272). If you upgrade to this version of govuk_frontend_toolkit and you’re also using govuk_template you’ll need to upgrade that to at least 0.17.2 to maintain compatibility with desktop IE10 in snap mode.
+
+# 4.10.0
+
+- Allow New Transport font stack to be overridden by apps using `$toolkit-font-stack`
+and `$toolkit-font-stack-tabular` (PR #230)
+
 # 4.9.1
 
 - Fix phase banner alignment (PR #266)
