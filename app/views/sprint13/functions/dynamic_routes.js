@@ -11,11 +11,11 @@ var dynamic_routes = {
           req.body.nino && req.body.address ||
           req.body.nino && req.body.age)
       {
-        urls.next = '/sprint13/details-more';
+        urls.next = '/sprint10/details-more';
       } else {
-        urls.next = '/sprint13/exit';
+        urls.next = '/sprint10/exit';
       }
-      urls.back = '/sprint13/start-page';
+      urls.back = '/sprint10/start-page';
     }
 
     // Fraud Type
@@ -60,7 +60,7 @@ var dynamic_routes = {
       } else if ( fraud_urls.other === "true" ) {
         urls.next = 'other';
       } else {
-        urls.next = 'additional-information';
+        urls.next = 'review';
       }
     }
 
@@ -81,7 +81,7 @@ var dynamic_routes = {
       } else if ( fraud_urls.other === "true" ) {
         urls.next = 'other';
       } else {
-        urls.next = 'additional-information';
+        urls.next = 'review';
       }
     }
 
@@ -97,14 +97,15 @@ var dynamic_routes = {
         urls.next = 'identity';
       } else if ( fraud_urls.income === "true" ) {
         urls.next = 'income';
-
+      } else if ( fraud_urls.other === "true" ) {
+        urls.next = 'other';
       } else {
         urls.next = 'review';
       }
     }
 
-    // Carers More
-    if (req.path === '/carers-more') {
+    // Carers
+    if (req.path === '/carers') {
       fraud_urls = req.cookies.fraud_urls;
 
       if ( fraud_urls.abroad === "true" ) {
@@ -116,7 +117,7 @@ var dynamic_routes = {
       } else if ( fraud_urls.other === "true" ) {
         urls.next = 'other';
       } else {
-        urls.next = 'additional-information';
+        urls.next = 'review';
       }
     }
 
@@ -131,7 +132,7 @@ var dynamic_routes = {
       } else if ( fraud_urls.other === "true" ) {
         urls.next = 'other';
       } else {
-        urls.next = 'additional-information';
+        urls.next = 'review';
       }
     }
 
@@ -155,18 +156,7 @@ var dynamic_routes = {
       if ( fraud_urls.other === "true" ) {
         urls.next = 'other';
       } else {
-        urls.next = 'additional-information';
-      }
-    }
-
-    // exit More
-    if (req.path === '/exit') {
-      fraud_urls = req.cookies.fraud_urls;
-
-      if ( fraud_urls.other === "true" ) {
-        urls.next = 'other';
-      } else {
-        urls.next = 'review-ub';
+        urls.next = 'review';
       }
     }
 

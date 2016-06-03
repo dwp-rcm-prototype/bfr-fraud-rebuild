@@ -1,35 +1,20 @@
 {% extends "layout.html" %}
 
 {% block phase%}
-  {% include 'sprint12/partials/phase-banner.html'%}
+  {% include 'sprint10/partials/phase-banner.html'%}
 {% endblock %}
 
 {% block main %}
   <div class="grid-row">
-
-    <section class="font-xsmall column-one-quarter">
-      <h2 class="heading-medium" id="helpcontent">Get help</h2>
-      <!--<p class="compound">
-        <a id="helppage" rel="external" href="/claim-help" target="_blank" onmousedown="trackEvent('/allowance/approve','Claim Notes - Left Column');" onkeydown="trackEvent('/allowance/approve','Claim Notes - Left Column');">Read the guide</a>
-      </p>-->
-      <h3 class="heading-small">Helpline 07721 235226</h3>
-      <p>Mon to Thurs: 8:30am - 5pm</p>
-      <p>Friday: 8:30am - 4:30pm</p>
-      <p>Closed public holidays.</p>
-      <p>Calls answered within 5 minutes.</p>
-      <p>Calls cost up to 9p a minute from landlines, calls from mobiles may cost more.</p>
-
-    </section>
-
     <div class="column-two-thirds">
-      <h1 class="heading-xlarge">
-        Do you know their partners work details?
+      <h1 class="heading-medium">
+        Do you know their partners employment details?
       </h1>
 
       <form action='partner-employment' method="post">
         <fieldset class="inline">
           <legend class="visuallyhidden">
-            Do you know their partners work details?
+            Do you know their partners employment details?
           </legend>
 
           <div class="form-group">
@@ -46,9 +31,34 @@
         </fieldset>
 
         <div class="js-hidden" id="pn_employment_hidden" style="display:{{session.pn_employment_hidden}};">
-          {% include 'sprint12/partials/employment-details/employment.html'%}
-        </div>
+          <legend class="form-label-bold" for="employment-form">
+            Employment status
+          </legend>
 
+          <div class="form-group">
+            <fieldset>
+              <label class="block-label" for="employed" data-target="employment_employed">
+                <input id="employed" type="radio" name="employment_select" value="employed" {{session.employed}}>
+                Employed
+              </label>
+
+              <label class="block-label" for="self_employed" data-target="employment_selfemployed">
+                <input id="self_employed" type="radio" name="employment_select" value="self_employed" {{session.self_employed}}>
+                Self employed
+              </label>
+
+              <label class="block-label" for="unknown" data-target="employment_unknown">
+                <input id="unknown" type="radio" name="employment_select" value="unknown" {{session.unknown}}>
+                I don't know
+              </label>
+            </fieldset>
+          </div>
+
+          {% include "sprint10/partials/employment-details/employment.html" %}
+          {% include "sprint10/partials/employment-details/self_employed.html" %}
+          {% include "sprint10/partials/employment-details/unknown.html" %}
+        </div>
+        
         <input type="submit" class="button" value="Continue">
       </form>
     </div>
