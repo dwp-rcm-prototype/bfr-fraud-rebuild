@@ -16,6 +16,7 @@ var path = require('path'),
     sprint11 = require(__dirname + '/app/routes/sprint11.js'),
     sprint12 = require(__dirname + '/app/routes/sprint12.js'),
     sprint13 = require(__dirname + '/app/routes/sprint13.js'),
+    sprint14 = require(__dirname + '/app/routes/sprint14.js'),
 
 
 
@@ -83,6 +84,7 @@ app.use("/sprint10", sprint10);
 app.use("/sprint11", sprint11);
 app.use("/sprint12", sprint12);
 app.use("/sprint13", sprint13);
+app.use("/sprint14", sprint14);
 
 // auto render any view that exists
 app.get(/^\/([^.]+)$/, function (req, res) {
