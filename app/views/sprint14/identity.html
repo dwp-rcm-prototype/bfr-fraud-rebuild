@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint12/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Using an identity other than their own</h1>
+
+      <form method="post" action="identity">
+        <div class="form-group {{validate.identity}}">
+          <label class="form-label" for="identity">What have you seen or heard that makes you think this person is using another identity other than their own?</label>
+          <textarea class="form-control form-control-3-4" rows="5" id="identity" name="identity">{{session.identity}}</textarea>
+        </div>
+
+        <div class="form-group {{validate.identity}}">
+          <p class="form-label-bold" for="identity">Who are they claiming to be?</p>
+          <label class="form-label" for="building">First name being used</label>
+          <input type="text" class="form-control no-error " id="building" name="building" value="{{session.building}}">
+        </div>
+
+        <div class="form-group {{validate.identity}}">
+          <label class="form-label" for="building">Last name being used</label>
+          <input type="text" class="form-control no-error " id="building" name="building" value="{{session.building}}">
+        </div>
+
+        <div class="form-group {{validate.identity}}">
+          <label class="form-label" for="building">Other name being used</label>
+          <input type="text" class="form-control no-error " id="building" name="building" value="{{session.building}}">
+        </div>
+
+        <legend class="form-label-bold" for="dob_approximate_age">
+          Do you know their date of birth they are using?
+        </legend>
+
+        <div class="form-group" id="dob_approximate_age">
+          <fieldset class="inline">
+            <label class="block-label" data-target="dob_hidden" for="dob_yes">
+              <input id="dob_yes" type="radio" name="dob_select" value="Yes" aria-controls="dob_hidden" aria-expanded="false" {{session.dob_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label {{session.dob_no}}" data-target="approximate_age_hidden" for="dob_no">
+              <input id="dob_no" type="radio" name="dob_select" value="No" aria-expanded="false" {{session.dob_no}}>
+              No
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden {{validate.dob}}" id="dob_hidden" style="display:{{session.dob_hidden}}">
+              <div class="form-group">
+                <fieldset>
+                  <div class="form-date">
+                    <p class="form-hint">For example, 31 03 1980</p>
+
+                    <div class="form-group form-group-day">
+                      <label for="dob_day">Day</label>
+                      <input class="form-control no-error" id="dob_day" name="dob_day" value="{{session.dob_day}}" type="text" maxlength="2">
+                    </div>
+
+                    <div class="form-group form-group-month">
+                      <label for="dob_month">Month</label>
+                      <input class="form-control no-error" id="dob_month" name="dob_month" value="{{session.dob_month}}" type="text" maxlength="2">
+                    </div>
+
+                    <div class="form-group form-group-year">
+                      <label for="dob-year">Year</label>
+                      <input class="form-control no-error" id="dob_year" name="dob_year" value="{{session.dob_year}}" type="text" maxlength="4">
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden {{validate.age}}" id="approximate_age_hidden" aria-hidden="true" style="display:{{session.approximate_age_hidden}}">
+              <label class="form-label-bold" for="age">Approximate age</label>
+              <input class="form-control" name="age" type="text" id="age" value="{{session.age}}">
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-group {{validate.identity}}">
+          <label class="form-label-bold" for="additional_info">Address and previous addresses used with this identity</label>
+          <textarea class="form-control form-control-3-4" rows="5" id="identity" name="identity">{{session.identity}}</textarea>
+        </div>
+
+        <h2 class="heading-small">Do they have any documents to do with this identity</h2>
+        <p class="form-hint">For example, passport or driving licence</p>
+        <fieldset class="inline">
+          <div class="form-group">
+            <label class="block-label" data-target="job_hourswork" for="job_hoursyes">
+              <input id="job_hoursyes" type="radio" name="job_hours" value="Yes" aria-controls="job_hourswork" aria-expanded="false" {{session.job_yes}}>
+              Yes
+            </label>
+
+            <label class="block-label" data-target="approximate_age_hidden" for="job_hoursno" {{session.job_no}}>
+              <input id="job_hoursno" type="radio" name="job_hours" value="No">
+              No
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden" id="job_hourswork" style="display:{{session.hours_work_display}}">
+              <div class="form-group">
+                <fieldset>
+                  <div class="form-date">
+                    <label class="form-label-bold" for="what_is_their_job">
+                      Give details of these documents
+                    </label>
+
+                    <textarea class="form-control form-control-3-4" rows="5" id="identity" name="identity">{{session.identity}}</textarea>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <h2 class="heading-small">Are they using any other identities?</h2>
+        <fieldset class="inline">
+          <div class="form-group">
+            <label class="block-label" data-target="otheridentity_display" for="otheridentity_displayyes">
+              <input id="otheridentity_displayyes" type="radio" name="otheridentity_displayselect" value="Yes" aria-controls="otheridentity_display" aria-expanded="false">
+              Yes
+            </label>
+
+            <label class="block-label" for="otheridentity_displayno" >
+              <input id="otheridentity_displayno" type="radio" name="otheridentity_displayselect" value="No">
+              No
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden" id="otheridentity_display" style="display:{{session.otheridentity_display}}">
+              <div class="form-group">
+                <fieldset>
+                  <div class="form-date">
+                    <label class="form-label-bold" for="what_is_their_job">
+                      Give details of each identity
+                    </label>
+                    <p class="form-hint">For example, names, address, approximate age</p>
+                    <textarea class="form-control form-control-3-4" rows="5" id="identity" name="identity">{{session.identity}}</textarea>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div class="form-group">
+            <label class="form-label-bold" for="additional_info">Additional information</label>
+            <p class="form-hint">For example, vehicle details, do they own additional properties, details of who they live with (if applicable)</p>
+            <textarea class="form-control form-control-3-4" rows="5" id="additional_info" name="additional_info">{{session.additional_info}}</textarea>
+          </div>
+        </fieldset>
+
+
+        <input id="submit" type="submit" class="button" value="Continue">
+      </form>
+      {% include "sprint14/partials/assisteddigital.html" %}
+    </div>
+  </div>
+{% endblock %}

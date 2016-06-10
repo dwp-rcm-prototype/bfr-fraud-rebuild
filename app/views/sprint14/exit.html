@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint12/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      {% if exit_warning.status %}
+
+        <h1 class="heading-xlarge">
+          Report of benefit fraud
+        </h1>
+
+      <form method="post" action="letusknow-letusknow">
+        <div class="form-group ">
+          <fieldset id="address-form">
+            <legend class="form-label-bold" for="address-form">Give as much of the following information as you can:</legend>
+            <p class="form-hint">Please provide (if known) name, address, length of time it has been going on</p>
+
+            <textarea class="form-control form-control-3-4" rows="10" id="letusknow" name="letusknow"></textarea>
+
+          </fieldset>
+
+        </div>
+
+        <input type="submit" class="button" value="Continue" />
+      </form>
+
+        <!--<a href="/sprint12/feedback" id="exit_warning_feedback">
+          What did you think of this service? (takes 30 seconds)
+        </a>-->
+      {% else %}
+        <h1 class="heading-xlarge">You haven’t given enough information</h1>
+
+        <p class="lede">
+          Do you also know their:
+        </p>
+
+        <form action="exit" method="post">
+          <div class="form-group">
+            {% for element in render %}
+              <fieldset class="inline">
+                <legend class="visuallyhidden">{{element.title}}?</legend>
+
+                <h2 class="heading-small" style="margin-bottom: 0;">{{element.title}}?<h2>
+                  {% if element.hint %}
+                    <span class="form-hint">{{element.hint}}</span>
+                  {% endif %}
+
+                <label class="block-label" for="{{element.id}}_yes">
+                  <input id="{{element.id}}_yes" type="radio" name="{{element.id}}" value="true">
+                  Yes
+                </label>
+                <label class="block-label" for="{{element.id}}_no"  data-target="abroadadress_hidden" value="No" aria-expanded="false">
+                  <input id="{{element.id}}_no" type="radio" name="{{element.id}}" value="false">
+                  No
+                </label>
+              </fieldset>
+            {% endfor %}
+
+            <!--<div class="js-hidden " id="abroadadress_hidden" style="display:{{session.abroadadress_abroad_hidden}};">
+              <div class="form-group ">
+                <div id="exit_warning" class="panel indent-info-blue">
+                  <p class="text">
+                    Unfortunately you have no provided enough information for a full investigation, but you can still carry on and enter as much details as possible
+                  </p>
+                </div>
+
+              </div>
+            </div>-->
+
+          </div>
+
+          <input type="submit" class="button" value="Continue" />
+        </form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

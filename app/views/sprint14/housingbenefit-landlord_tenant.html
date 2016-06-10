@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint12/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+
+<div class="grid-row">
+ <div class="column-two-thirds">
+       <h1 class="heading-xlarge">Landlord / Tenant</h1>
+
+ <form method="post" action="abroad">
+
+   <h2 class="heading-small">Tell us what you know?</h2>
+
+      <fieldset>
+        <div class="form-group">
+          <textarea class="form-control form-control-3-4" rows="5" id="additional_info" name="additional_info">{{session.additional_info}}</textarea>
+        </div>
+      </fieldset>
+
+      <input id="submit" type="submit" class="button" value="Continue">
+    </form>
+    {% include "sprint14/partials/assisteddigital.html" %}
+  </div>
+
+</div>
+
+{% endblock %}
