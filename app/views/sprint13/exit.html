@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block phase%}
-  {% include 'sprint10/partials/phase-banner.html'%}
+  {% include 'sprint12/partials/phase-banner.html'%}
 {% endblock %}
 
 {% block main %}
@@ -9,22 +9,28 @@
     <div class="column-two-thirds">
       {% if exit_warning.status %}
 
-        <h1 id="exit_warning_h1" class="heading-medium">
-          Sorry, you can’t continue.
-          <span id="more_info_needed">
-            {{exit_warning.needed}}
-          </span>
+        <h1 class="heading-xlarge">
+          Report of benefit fraud
         </h1>
 
-        <div id="exit_warning" class="panel panel-border-narrow indent-info-blue">
-          <p class="text">
-            To complete and send a report you need to give enough information to identify the person. It’s not possible to investigate someone without it.
-          </p>
+      <form method="post" action="letusknow-letusknow">
+        <div class="form-group ">
+          <fieldset id="address-form">
+            <legend class="form-label-bold" for="address-form">Give as much of the following information as you can:</legend>
+            <p class="form-hint">Please provide (if known) name, address, length of time it has been going on</p>
+
+            <textarea class="form-control form-control-3-4" rows="10" id="letusknow" name="letusknow"></textarea>
+
+          </fieldset>
+
         </div>
 
-        <a href="/sprint10/feedback" id="exit_warning_feedback">
+        <input type="submit" class="button" value="Continue" />
+      </form>
+
+        <!--<a href="/sprint12/feedback" id="exit_warning_feedback">
           What did you think of this service? (takes 30 seconds)
-        </a>
+        </a>-->
       {% else %}
         <h1 class="heading-xlarge">You haven’t given enough information</h1>
 
@@ -38,18 +44,38 @@
               <fieldset class="inline">
                 <legend class="visuallyhidden">{{element.title}}?</legend>
 
-                <h1 class="heading-medium">{{element.title}}?</h1>
+                <h2 class="heading-small" style="margin-bottom: 0;">{{element.title}}?<h2>
+                  {% if element.hint %}
+                    <span class="form-hint">{{element.hint}}</span>
+                  {% endif %}
 
                 <label class="block-label" for="{{element.id}}_yes">
                   <input id="{{element.id}}_yes" type="radio" name="{{element.id}}" value="true">
                   Yes
                 </label>
-                <label class="block-label" for="{{element.id}}_no">
+                <label class="block-label" for="{{element.id}}_no"  data-target="abroadadress_hidden" value="No" aria-expanded="false">
                   <input id="{{element.id}}_no" type="radio" name="{{element.id}}" value="false">
                   No
                 </label>
               </fieldset>
             {% endfor %}
+
+            <div class="js-hidden " id="abroadadress_hidden" style="display:{{session.abroadadress_abroad_hidden}};">
+              <div class="form-group ">
+                <div id="exit_warning" class="panel indent-info-blue">
+                  <p class="text">
+                    We are sorry but our department may struggle to investigate your referral as we may not be able to identify the suspect in our records on the information you have supplied.
+                  </p>
+                </div>
+
+                <p class="text">
+                  If you would still like to make your referral, please click on the continue button below and we will do our best endeavors to investigate your referral fully.
+                </p>
+
+              </div>
+
+            </div>
+
           </div>
 
           <input type="submit" class="button" value="Continue" />

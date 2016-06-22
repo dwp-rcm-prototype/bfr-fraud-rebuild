@@ -14,7 +14,7 @@
       <form action="carers" method="post">
         <fieldset>
           <div class="form-group {{validate.why_do_you_think_that}}">
-            <label class="form-label-bold" for="carers">What makes you think they're dishonestly claiming a carers benefit?</label>
+            <label class="form-label-bold" for="carers">What makes you think they're dishonestly claiming?</label>
             <textarea class="form-control form-control-3-4" rows="5" id="carers" name="carers">{{session.carers}}</textarea>
           </div>
         </fieldset>
@@ -22,7 +22,7 @@
         <fieldset>
           <div id="firstName-form" class="form-group">
             <label class="form-label-bold" for="how_long">
-              How long do you think this has been going on?
+              How long do you think they’ve been doing this?
             </label>
             <input type="text" class="form-control" id="how_long" name="how_long" value="{{session.how_long}}">
           </div>
@@ -158,7 +158,7 @@
           <div class="form-group ">
             <fieldset id="address-form">
               <legend class="form-label-bold" for="address-form">Vehicle details</legend>
-              <p class="form-hint">Make and model, colour and if known registration number</p>
+              <p class="form-hint">Include make and model, colour and registration number</p>
               <textarea class="form-control" rows="4" id="whyInfo" name="whyInfo"></textarea>
             </fieldset>
           </div>
