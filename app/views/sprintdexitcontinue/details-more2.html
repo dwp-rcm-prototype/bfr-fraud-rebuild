@@ -1,0 +1,183 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint12/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">The person you’re reporting</h1>
+
+      <form method="post" action="details-more">
+        {% include "sprintdexitcontinue/partials/details-more2/name.html" %}
+  
+
+        <legend class="form-label-bold" for="dob_approximate_age">
+          Do you know their date of birth?
+        </legend>
+
+        <div class="form-group" id="dob_approximate_age">
+          <fieldset class="inline">
+            <label class="block-label" data-target="dob_hidden" for="dob_yes">
+              <input id="dob_yes" type="radio" name="dob_select" value="Yes" aria-controls="dob_hidden" aria-expanded="false">
+              Yes
+            </label>
+
+            <label class="block-label checked selected" data-target="approximate_age_hidden" for="dob_no">
+              <input id="dob_no" type="radio" name="dob_select" value="No" aria-expanded="false" checked="" aria-controls="approximate_age_hidden">
+              No
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden " id="dob_hidden" style="display:none">
+              <div class="form-group">
+                <fieldset>
+                  <div class="form-date">
+                    <p class="form-hint">For example, 31 03 1980</p>
+
+                    <div class="form-group form-group-day">
+                      <label for="dob_day">Day</label>
+                      <input class="form-control no-error" id="dob_day" name="dob_day" value="" type="text" maxlength="2">
+                    </div>
+
+                    <div class="form-group form-group-month">
+                      <label for="dob_month">Month</label>
+                      <input class="form-control no-error" id="dob_month" name="dob_month" value="" type="text" maxlength="2">
+                    </div>
+
+                    <div class="form-group form-group-year">
+                      <label for="dob-year">Year</label>
+                      <input class="form-control no-error" id="dob_year" name="dob_year" value="" type="text" maxlength="4">
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden " id="approximate_age_hidden" aria-hidden="true" style="display:block">
+              <label class="form-label-bold" for="age">Approximate age</label>
+              <input class="form-control" name="age" type="text" id="age" value="23">
+            </div>
+          </fieldset>
+        </div>
+
+        <legend class="form-label-bold" for="other_name_form">
+          Address
+
+          <p class="form-hint">
+            Include at least street and town
+          </p>
+        </legend>
+
+        <div class="form-group">
+          <fieldset>
+            <div id="firstName-form" class="form-group form-group-compound">
+              <label class="form-label" for="building">Building name or number</label>
+              <input type="text" class="form-control" id="building" name="building" value="">
+            </div>
+
+            <div id="lastName-form" class="form-group form-group-compound ">
+              <label class="form-label" for="street">Street</label>
+              <input type="text" class="form-control" id="street" name="street" value="we">
+            </div>
+
+            <div id="lastName-form" class="form-group form-group-compound ">
+              <label class="form-label" for="town">Town or city</label>
+              <input type="text" class="form-control" id="town" name="town" value="qwe">
+            </div>
+
+            <div id="lastName-form" class="form-group form-group-compound">
+              <label class="form-label" for="county">County</label>
+              <input type="text" class="form-control" id="county" name="county" value="">
+            </div>
+
+            <div id="lastName-form" class="form-group form-group-compound">
+              <label class="form-label" for="postcode">Postcode</label>
+              <input type="text" class="form-control" id="postcode" name="postcode" value="">
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-group form-group" id="ninoDetails-form">
+          <fieldset class="inline">
+            <legend class="form-label-bold" for="ninoDetails-form">
+              Do you know their National Insurance number
+            </legend>
+
+            <label class="block-label" for="nino_select_yes" data-target="nino_details_hidden">
+              <input id="nino_select_yes" type="radio" name="nino_select" value="Yes" aria-controls="nino_details_hidden">
+              Yes
+            </label>
+
+            <label class="block-label" for="nino_select_no">
+              <input id="nino_select_no" type="radio" name="nino_select" value="No">
+              No
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <div class="panel panel-border-narrow js-hidden " id="nino_details_hidden" style="display:;">
+              <div id="nino-form" class="form-group">
+                <label class="form-label-bold" for="nino">Please enter their National Insurance number</label>
+                <input type="text" class="form-control" id="nino" name="nino" value="">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-group form-group" id="phoneDetails-form">
+          <fieldset class="inline">
+            <legend class="form-label-bold" for="phoneDetails-form">
+            Do you know their telephone number?
+            </legend>
+
+            <label class="block-label" for="phone_select_yes" data-target="phone_details_hidden">
+              <input id="phone_select_yes" type="radio" name="phone_select" value="Yes" aria-controls="phone_details_hidden">
+              Yes
+            </label>
+
+            <label class="block-label" for="phone_select_no">
+              <input id="phone_select_no" type="radio" name="phone_select" value="No">
+              No
+            </label>
+          </fieldset>
+
+          <div class="panel panel-border-narrow js-hidden " id="phone_details_hidden" style="display:;">
+            <div id="phone-form" class="form-group">
+              <label class="form-label-bold" for="phone">Please enter their telephone number</label>
+              <input type="text" class="form-control" id="phone" name="phone" value="">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group form-group" id="emailDetails-form">
+          <fieldset class="inline">
+            <legend class="form-label-bold" for="emailDetails-form">
+              Do you know their email?
+            </legend>
+
+            <label class="block-label" for="email_select_yes" data-target="email_hidden">
+              <input id="email_select_yes" type="radio" name="email_select" value="Yes" aria-controls="email_hidden">
+              Yes
+            </label>
+
+            <label class="block-label" for="email_select_no">
+              <input id="email_select_no" type="radio" name="email_select" value="No">
+              No
+            </label>
+          </fieldset>
+
+          <div class="panel panel-border-narrow js-hidden " id="email_hidden" style="display:;">
+            <div id="email-form" class="form-group  panel-indent ">
+              <label class="form-label-bold" for="email">Please enter their email address</label>
+              <input type="text" class="form-control" id="email" name="email" value="">
+            </div>
+          </div>
+        </div>
+
+        <a href="fraud-type" type="submit" class="button" value="Continue" />Continue</a>
+      </form>
+      {% include "sprint14/partials/assisteddigital.html" %}
+    </div>
+  </div>
+{% endblock %}

@@ -13,9 +13,79 @@
 
       <form action="employment-details" method="post">
         {% include 'sprint14/partials/employment-details/employment.html'%}
-        <input type="submit" class="button" value="Continue">
-      </form>
-      {% include "sprint14/partials/assisteddigital.html" %}
-    </div>
+
+
+
+<!-- housing benefit LA start-->
+          <div class="form-group" style="margin: 0;">
+            <hr class="clearfix">
+          </div>
+          <div class="form-group">
+
+              <h2 class="heading-medium">LA referral form</h2>
+              <label class="form-label-bold" for="phone">Referral Source:</label>
+
+              <label class="block-label" data-target="" for="addressabroad_yes">
+                <input id="addressabroad_yes" type="checkbox" name="addressabroad_select" value="Yes" aria-controls="" aria-expanded="false">
+                General HB Admin
+              </label>
+
+              <label class="block-label" for="addressabroad_no">
+                <input id="addressabroad_no" type="checkbox" name="addressabroad_select" value="No" aria-expanded="false">
+                HBMS
+              </label>
+
+              <label class="block-label" for="addressabroad_no">
+                <input id="addressabroad_no" type="checkbox" name="addressabroad_select" value="No" aria-expanded="false">
+                NFI
+              </label>
+
+              <label class="block-label" for="addressabroad_dontknow">
+                <input id="addressabroad_dontknow" type="checkbox" name="addressabroad_select">
+                RTI
+              </label>
+
+              <div id="lastName-form" class="form-group form-group-compound">
+                <label class="form-label" for="postcode">Other (please specify)</label>
+                <input type="text" class="form-control" id="postcode" name="postcode" value="">
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label-bold" for="phone">Period(s) of housing benefit claim(s)</label>
+                  <input type="text" class="form-control no-error " id="building" name="building" value="">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label-bold" for="phone">Housing benefit award(s)</label>
+                  <input type="text" class="form-control no-error " id="building" name="building" value="">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label-bold" for="phone">Referred by:</label>
+                <label class="form-label" for="building">Name</label>
+                <input type="text" class="form-control no-error " id="building" name="building" value="">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="building">Telephone number</label>
+                <input type="text" class="form-control no-error " id="building" name="building" value="">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="building">Contact address</label>
+                <input type="text" class="form-control no-error " id="building" name="building" value="">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="building">Email address</label>
+                <input type="text" class="form-control no-error " id="building" name="building" value="">
+            </div> <!-- housing benefit LA end -->
+
+            <input type="submit" class="button" value="Continue">
+
+        </form>
+      </div>
+
+      <!--{% include "sprint14/partials/assisteddigital.html" %}-->
+
+
   </div>
 {% endblock %}

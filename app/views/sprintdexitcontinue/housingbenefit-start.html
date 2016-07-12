@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint12/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+
+<div class="grid-row">
+ <div class="column-two-thirds">
+       <h1 class="heading-xlarge">Housing benefit fraud</h1>
+
+ <form method="post" action="abroad">
+
+   <div class="form-group">
+     <label class="block-label" data-target="" for="addressabroad_yes">
+       <input id="addressabroad_yes" type="checkbox" name="addressabroad_select" value="Yes" aria-controls="" aria-expanded="true">
+       <span class="heading-small">Is there a partner living at the address but not declared?</span><br>
+       Prompt to be inserted
+     </label>
+
+     <label class="block-label" for="addressabroad_no">
+       <input id="addressabroad_no" type="checkbox" name="addressabroad_select" value="No" aria-expanded="false">
+       <span class="heading-small">They are working but claiming housing benefit?</span><br>
+       Prompt to be inserted
+     </label>
+
+     <label class="block-label" for="addressabroad_no">
+       <input id="addressabroad_no" type="checkbox" name="addressabroad_select" value="No" aria-expanded="false">
+       <span class="heading-small">They have savings and assets that affect their housng benefit?</span><br>
+       Prompt to be inserted
+     </label>
+
+     <label class="block-label" for="addressabroad_dontknow">
+       <input id="addressabroad_dontknow" type="checkbox" name="addressabroad_select">
+       <span class="heading-small">Has someone joined (always lived there) or left the address/property?</span><br>
+       Prompt to be inserted
+     </label>
+
+     <label class="block-label" for="addressabroad_dont">
+       <input id="addressabroad_dont" type="checkbox" name="addressabroad_select">
+       <span class="heading-small">Landlord / tenant fraud</span><br>
+       Prompt to be inserted
+     </label>
+
+   </div>
+
+      <input id="submit" type="submit" class="button" value="Continue">
+    </form>
+    {% include "sprint14/partials/assisteddigital.html" %}
+  </div>
+
+</div>
+{% endblock %}

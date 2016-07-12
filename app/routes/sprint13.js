@@ -366,7 +366,7 @@ router.post('/partner-employment', function(req, res) {
     } else {
       var needed = functions.exit_page_needed(req, res);
 
-      res.render('sprint13/exit', {exit_warning: {'status': true, needed: needed}});
+      res.render('sprint13/review-ub');
     }
   });
 // end Exit Page

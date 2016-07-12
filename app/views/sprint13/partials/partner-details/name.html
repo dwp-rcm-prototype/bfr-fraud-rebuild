@@ -11,7 +11,7 @@
 <div class="form-group form-group" id="otherName-form">
   <fieldset class="inline">
     <legend class="form-label-bold" for="otherName-form">
-      Do you know them by another name?
+      Do you know them by another names?
       <p class="form-hint">For example nickname, professional name or maiden name</p>
     </legend>
 
@@ -29,8 +29,8 @@
   <div class="panel panel-border-narrow js-hidden {{validate.other_name}}" id="other_name_hidden" style="display:{{session.other_name_hidden}};">
     <fieldset>
       <div id="otherNameDetails-form" class="form-group">
-        <label class="form-label-bold" for="other_name">Name</label>
-        <input type="text" class="form-control" id="other_name" name="other_name" value="{{session.other_name}}">
+        <label class="form-label-bold" for="other_name">Names</label>
+        <textarea type="text" class="form-control" rows="5" id="other_name" name="other_name" value="{{session.other_name}}"></textarea>
       </div>
     </fieldset>
   </div>

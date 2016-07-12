@@ -1,13 +1,14 @@
 {% extends "layout.html" %}
 
 {% block phase%}
-  {% include 'sprint10/partials/phase-banner.html'%}
+  {% include 'sprint12/partials/phase-banner.html'%}
 {% endblock %}
 
 {% block main %}
   <div class="grid-row">
+
     <div class="column-two-thirds">
-      <h1 class="heading-xlarge">Not declaring savings or other income</h1>
+      <h1 class="heading-xlarge">Not declaring savings or other non-work related income</h1>
 
       <form action="income" method="post">
         <div class="form-group {{validate.what_makes_you_think}}">
@@ -22,7 +23,6 @@
           <label class="form-label-bold" for="how_much">
             What is the approximate amount or value?
           </label>
-
           <input type="text" class="form-control" id="how_much" name="how_much" value="{{session.how_much}}">
         </div>
 

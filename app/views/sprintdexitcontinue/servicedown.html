@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint12/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Something’s gone wrong</h1>
+      <p class="text">
+      You can’t use this service just now. The problem will be fixed as soon as
+      possible
+      </p>
+      <p class="text">
+      Please try again later.
+      </p>
+
+    </div>
+<!--
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">Sorry, we are experiencing techincal difficulties</h1>
+      <p>Please try again in a few moments</p>
+      <hr>
+      <p>National Benefit Fraud Hotline <span class="bold-small">0800 854 440</span> – or <span class="bold-small">0800 678 3722</span> for Welsh speakers/siaradwyr Cymraeg – Textphone users call <span class="bold-small">0800 328 0512</span></p>
+    </div>
+-->
+  </div>
+{% endblock %}

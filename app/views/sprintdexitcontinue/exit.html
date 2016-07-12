@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint12/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      {% if exit_warning.status %}
+
+        <h1 id="exit_warning_h1" class="heading-medium">
+          Sorry, DWP can’t take your report
+        </h1>
+
+        <div id="exit_warning" class="panel panel-border-narrow indent-info-blue">
+          <p class="text">
+            We’re unable to investigate without knowing at least the name, address and age of the person.
+          </p>
+        </div>
+
+        <!--<p>To help us find them, do you also know their <span id="more_info_needed">{{exit_warning.needed}}</span></p>
+        <p><a class="button" href="/sprint12/details" role="button">Start again</a></p>-->
+        <p><a href="/sprint12/feedback" id="exit_warning_feedback">
+          What did you think of this service? (takes 30 seconds)
+        </a></p>
+      {% else %}
+
+        <h1 class="heading-xlarge">You haven’t given enough information</h1>
+
+        <p class="lede">
+          Do you also know their:
+        </p>
+
+        <form action="exit" method="post">
+          <div class="form-group">
+            {% for element in render %}
+              <fieldset class="inline">
+                <legend class="visuallyhidden">{{element.title}}?</legend>
+
+                <h2 class="heading-small" style="margin-bottom: 0;">{{element.title}}?<h2>
+                  {% if element.hint %}
+                    <span class="form-hint">{{element.hint}}</span>
+                  {% endif %}
+
+                <label class="block-label" for="{{element.id}}_yes"   data-target="abroadadress_hidden2" for="abroadadress_yes" value="No" aria-expanded="yes">
+                  <input id="{{element.id}}_yes" type="radio" name="{{element.id}}" value="true"  value="Yes" aria-controls="abroadadress_abroad_hidden2" aria-expanded="true">
+                  Yes
+                </label>
+                <label class="block-label" for="{{element.id}}_no"  data-target="abroadadress_hidden" for="abroadadress_yes" value="No" aria-expanded="false">
+                  <input id="{{element.id}}_no" type="radio" name="{{element.id}}" value="false"  value="Yes" aria-controls="abroadadress_abroad_hidden" aria-expanded="true">
+                  No
+                </label>
+              </fieldset>
+
+
+
+
+            {% endfor %}
+
+            <div class="js-hidden " id="abroadadress_hidden2" style="display:{{session.abroadadress_abroad_hidden2}};">
+
+              <br><br>
+              <input type="submit" class="button" value="Continue" />
+            </div>
+
+            <div class="js-hidden " id="abroadadress_hidden" style="display:{{session.abroadadress_abroad_hidden}};">
+              <div class="panel panel-border-narrow ">
+
+
+                <h2 class="heading-medium">Based on what you've provided, we're unable to investigate.</h2>
+
+                  <!--<input type="submit" class="button" value="Continue" />-->
+<!--
+                  <a class="button" href="https://www.gov.uk/" value="Exit" />Exit this service</a>
+                  <br><br>or<br><br>
+                  <a href="details-more2" value="continue">If you still want to make a report continue</a>
+-->
+
+
+                  <a class="button" href="https://www.gov.uk/" value="Exit" />Exit this service</a>
+                  <br><br>or<br><br>
+                  <a href="fraud-type" value="continue">If you still want to make a report continue</a>
+
+
+                </div>
+
+            </div>
+
+            <br><br>
+
+            <a href="/feedback">What did you think of this service? (takes 30 seconds)</a>
+          </div>
+
+          <!--<input type="submit" class="button" value="Continue" />-->
+        </form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

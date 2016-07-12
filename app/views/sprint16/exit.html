@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint11/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      {% if exit_warning.status %}
+
+        <h1 id="exit_warning_h1" class="heading-medium">
+          Sorry, you can’t continue.
+          <span id="more_info_needed">
+            {{exit_warning.needed}}
+          </span>
+        </h1>
+
+        <div id="exit_warning" class="panel panel-border-narrow indent-info-blue">
+          <p class="text">
+            To complete and send a report you need to give enough information to identify the person. It’s not possible to investigate someone without it.
+          </p>
+        </div>
+
+        <a href="/sprint11/feedback" id="exit_warning_feedback">
+          What did you think of this service? (takes 30 seconds)
+        </a>
+      {% else %}
+        <h1 class="heading-xlarge">You haven’t given enough information</h1>
+
+        <p class="lede">You need to provide:</p>
+        <ul class="list-bullet">
+          <li>Last name</li>
+          <li>Street name</li>
+        </ul>
+
+        <br><br>
+
+        <form action="exit" method="post">
+
+          <div class="form-group">
+            <fieldset class="">
+              <label class="block-label" for="details-yes"   data-target="yesinfo_continue" for="yesinfo_yes" value="yes" aria-expanded="true">
+                <input id="details-yes" type="radio" name="details-select" value="Yes">
+                I know the information
+              </label>
+
+              <label class="block-label" for="details-no"  data-target="noinfo_continue" for="noinfo_yes" value="No" aria-expanded="false">
+                <input id="details-no" type="radio" name="details-select" value="No"  >
+                I don't know this information
+              </label>
+            </fieldset>
+          </div>
+
+          <div class="js-hidden " id="yesinfo_continue" style="display:{{session.yesinfo_continue}};">
+            <div class="form-group">
+
+              <fieldset class="{{validate.last_name}}">
+                <div id="lastName-form" class="form-group   ">
+                  <label class="form-label-bold" for="last_name">Last name</label>
+                  <input type="text" class="form-control" id="last_name" name="last_name" value="{{session.last_name}}">
+                </div>
+              </fieldset>
+
+
+              <div id="lastName-form" class="form-group form-group-compound {{validate.street}}">
+                <label class="form-label-bold " for="street">Street</label>
+                <input type="text" class="form-control" id="street" name="street" value="{{session.street}}">
+              </div>
+            </div>
+            <a type="submit" class="button" value="Continue" href="fraud-type" />Continue</a>
+          </div>
+
+
+          <div class="js-hidden " id="noinfo_continue" style="display:{{session.noinfo_continue}};">
+            <div class="form-group">
+              <p id="exit_warning_h1" class="heading-medium" style="padding:0; margin: 0;">
+              Based on what you've provided, we're unlikely to be able to investigate.
+              </p>
+
+              <p>If you still want to make a report:</p>
+              <input type="submit" class="button" value="Continue" />
+            </div>
+
+          </div>
+
+        </form>
+        <br><br><br><br>
+        <a href="https://www.gov.uk/" class="" value="Exit" />Exit this service</a>
+
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

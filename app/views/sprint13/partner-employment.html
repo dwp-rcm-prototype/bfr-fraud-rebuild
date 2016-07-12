@@ -1,20 +1,21 @@
 {% extends "layout.html" %}
 
 {% block phase%}
-  {% include 'sprint10/partials/phase-banner.html'%}
+  {% include 'sprint12/partials/phase-banner.html'%}
 {% endblock %}
 
 {% block main %}
   <div class="grid-row">
+
     <div class="column-two-thirds">
-      <h1 class="heading-medium">
-        Do you know their partners employment details?
+      <h1 class="heading-xlarge">
+        Do you know their partners work details?
       </h1>
 
       <form action='partner-employment' method="post">
         <fieldset class="inline">
           <legend class="visuallyhidden">
-            Do you know their partners employment details?
+            Do you know their partners work details?
           </legend>
 
           <div class="form-group">
@@ -31,34 +32,9 @@
         </fieldset>
 
         <div class="js-hidden" id="pn_employment_hidden" style="display:{{session.pn_employment_hidden}};">
-          <legend class="form-label-bold" for="employment-form">
-            Employment status
-          </legend>
-
-          <div class="form-group">
-            <fieldset>
-              <label class="block-label" for="employed" data-target="employment_employed">
-                <input id="employed" type="radio" name="employment_select" value="employed" {{session.employed}}>
-                Employed
-              </label>
-
-              <label class="block-label" for="self_employed" data-target="employment_selfemployed">
-                <input id="self_employed" type="radio" name="employment_select" value="self_employed" {{session.self_employed}}>
-                Self employed
-              </label>
-
-              <label class="block-label" for="unknown" data-target="employment_unknown">
-                <input id="unknown" type="radio" name="employment_select" value="unknown" {{session.unknown}}>
-                I don't know
-              </label>
-            </fieldset>
-          </div>
-
-          {% include "sprint10/partials/employment-details/employment.html" %}
-          {% include "sprint10/partials/employment-details/self_employed.html" %}
-          {% include "sprint10/partials/employment-details/unknown.html" %}
+          {% include 'sprint12/partials/employment-details/employment.html'%}
         </div>
-        
+
         <input type="submit" class="button" value="Continue">
       </form>
     </div>

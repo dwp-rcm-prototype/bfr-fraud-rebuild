@@ -29,7 +29,7 @@ var functions = {
       build_checkbox(
         req,
         'Working and claiming benefit',
-        'not declaring that they are working, under reporting the number of hours or the amount they earn',
+        'not declaring that they are working, under reporting the number of hours or the amount they earn, including cash in hand.',
         'employment',
         'true'
       ),
@@ -67,13 +67,13 @@ var functions = {
         'true'),
       build_checkbox(
         req,
-        'Not declaring savings or other income',
+        'Not declaring savings or other non-work related income',
         'when the person hasn’t declared other non-work related income, such as savings, inheritance, winnings, property, pensions or compensation.',
         'income',
-        'true'),
+        'true'),        
       build_checkbox(
         req,
-        'I dont know',
+        'None of the above',
         '',
         'other',
         'true'),
@@ -124,19 +124,19 @@ var functions = {
     var not_selected = [];
     if ( req.cookies.details.nino ) {
       if ( !req.cookies.details.name ) {
-        not_selected.push({'title':'Name', 'id': 'name'});
+        not_selected.push({'title':'Name', 'hint': 'First name and last name', 'id': 'name'});
       }
     } else {
       if ( !req.cookies.details.name ) {
-        not_selected.push({'title':'Name', 'id': 'name'});
+        not_selected.push({'title':'Name', 'hint': 'First name and last name','id': 'name'});
       }
 
       if ( !req.cookies.details.address ) {
-        not_selected.push({'title':'Address', 'id': 'address'});
+        not_selected.push({'title':'Address', 'hint': 'At least street and town','id': 'address'});
       }
 
       if ( !req.cookies.details.age ) {
-        not_selected.push({'title':'Approximate age', 'id': 'age'});
+        not_selected.push({'title':'Approximate age', 'hint': '', 'id': 'age'});
       }
     }
 

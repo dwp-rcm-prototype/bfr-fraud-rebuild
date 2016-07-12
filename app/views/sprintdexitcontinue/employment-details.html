@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint12/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+
+
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">The person you’re reporting: their work</h1>
+
+      <form action="employment-details" method="post">
+        {% include 'sprint14/partials/employment-details/employment.html'%}
+        <input type="submit" class="button" value="Continue">
+      </form>
+      {% include "sprint14/partials/assisteddigital.html" %}
+    </div>
+  </div>
+{% endblock %}

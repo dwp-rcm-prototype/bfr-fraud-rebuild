@@ -1,0 +1,176 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint12/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">LA reporting housing fraud</h1>
+
+      <h2 class="heading-large">Claimant</h2>
+
+      <form action="income" method="post">
+        <div class="form-group {{validate.what_makes_you_think}}">
+          <label class="form-label-bold" for="what_makes_you_think">
+            First Name
+          </label>
+          <input type="text" class="form-control" id="how_much" name="how_much" value="{{session.how_much}}">
+        </div>
+
+        <div id="return-form" class="form-group">
+          <label class="form-label-bold" for="how_much">
+            Last name
+          </label>
+          <input type="text" class="form-control" id="how_much" name="how_much" value="{{session.how_much}}">
+        </div>
+
+        <div id="return-form" class="form-group   ">
+          <label class="form-label-bold" for="how_long">
+            Nino
+          </label>
+          <input type="text" class="form-control" id="how_long" name="how_long" value="{{session.how_long}}">
+        </div>
+
+        <div id="return-form" class="form-group   ">
+          <label class="form-label-bold" for="how_long">
+            Date of birth
+          </label>
+          <input type="text" class="form-control" id="how_long" name="how_long" value="{{session.how_long}}">
+        </div>
+
+        <legend class="form-label-bold" for="other_name_form">
+          Address
+
+          <p class="form-hint">
+            Include at least street and town
+          </p>
+        </legend>
+
+        <div class="form-group">
+          <fieldset>
+            <div id="firstName-form" class="form-group form-group-compound">
+              <label class="form-label" for="building">Building name or number</label>
+              <input type="text" class="form-control" id="building" name="building" value="{{session.building}}">
+            </div>
+
+            <div id="lastName-form" class="form-group form-group-compound {{validate.street}}">
+              <label class="form-label" for="street">Street</label>
+              <input type="text" class="form-control" id="street" name="street" value="{{session.street}}">
+            </div>
+
+            <div id="lastName-form" class="form-group form-group-compound {{validate.town}}">
+              <label class="form-label" for="town">Town or city</label>
+              <input type="text" class="form-control" id="town" name="town" value="{{session.town}}">
+            </div>
+
+            <div id="lastName-form" class="form-group form-group-compound">
+              <label class="form-label" for="county">County</label>
+              <input type="text" class="form-control" id="county" name="county" value="{{session.county}}">
+            </div>
+
+            <div id="lastName-form" class="form-group form-group-compound">
+              <label class="form-label" for="postcode">Postcode</label>
+              <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
+            </div>
+          </fieldset>
+        </div>
+
+        <fieldset>
+          <div id="firstName-form" class="form-group {{validate.phone}}">
+            <label class="form-label-bold" for="phone">Telephone number</label>
+            <input type="text" class="form-control" id="phone" name="phone" value="{{session.phone}}">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div class="form-group">
+          <label class="form-label-bold" for="phone">Date sent</label>
+            <fieldset>
+              <div class="form-date">
+                <p class="form-hint">For example, 31 03 1980</p>
+
+                <div class="form-group form-group-day">
+                  <label for="dob_day">Day</label>
+                  <input class="form-control no-error" id="dob_day" name="dob_day" value="{{session.dob_day}}" type="text" maxlength="2">
+                </div>
+
+                <div class="form-group form-group-month">
+                  <label for="dob_month">Month</label>
+                  <input class="form-control no-error" id="dob_month" name="dob_month" value="{{session.dob_month}}" type="text" maxlength="2">
+                </div>
+
+                <div class="form-group form-group-year">
+                  <label for="dob-year">Year</label>
+                  <input class="form-control no-error" id="dob_year" name="dob_year" value="{{session.dob_year}}" type="text" maxlength="4">
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+
+          <h2 class="heading-large">Allegation</h2>
+          <label class="form-label-bold" for="phone">Referral Source:</label>
+
+          <label class="block-label" data-target="" for="addressabroad_yes">
+            <input id="addressabroad_yes" type="checkbox" name="addressabroad_select" value="Yes" aria-controls="" aria-expanded="true">
+            General HB Admin
+          </label>
+
+          <label class="block-label" for="addressabroad_no">
+            <input id="addressabroad_no" type="checkbox" name="addressabroad_select" value="No" aria-expanded="false">
+            HBMS
+          </label>
+
+          <label class="block-label" for="addressabroad_no">
+            <input id="addressabroad_no" type="checkbox" name="addressabroad_select" value="No" aria-expanded="false">
+            NFI
+          </label>
+
+          <label class="block-label" for="addressabroad_dontknow">
+            <input id="addressabroad_dontknow" type="checkbox" name="addressabroad_select">
+            RTI
+          </label>
+
+          <div id="lastName-form" class="form-group form-group-compound">
+            <label class="form-label" for="postcode">Other (please specify)</label>
+            <input type="text" class="form-control" id="postcode" name="postcode" value="{{session.postcode}}">
+          </div>
+        </div>
+
+        <div class="form-group">
+
+          <label class="form-label-bold" for="phone">Fraud type:</label>
+
+          <label class="block-label" data-target="" for="addressabroad_yes">
+            <input id="addressabroad_yes" type="checkbox" name="addressabroad_select" value="Yes" aria-controls="" aria-expanded="true">
+            Landlord fraud
+          </label>
+
+          <label class="block-label" for="addressabroad_no">
+            <input id="addressabroad_no" type="checkbox" name="addressabroad_select" value="No" aria-expanded="false">
+            Contrived tenancy
+          </label>
+
+          <label class="block-label" for="addressabroad_no">
+            <input id="addressabroad_no" type="checkbox" name="addressabroad_select" value="No" aria-expanded="false">
+            Non-residence
+          </label>
+
+          <label class="block-label" for="addressabroad_dontknow">
+            <input id="addressabroad_dontknow" type="checkbox" name="addressabroad_select">
+            Undeclared non-dependant
+          </label>
+
+        </div>
+
+        <input type="submit" class="button" value="Continue" />
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

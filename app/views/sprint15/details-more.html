@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block phase%}
+  {% include 'sprint11/partials/phase-banner.html'%}
+{% endblock %}
+
+{% block main %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">The person you’re reporting</h1>
+
+      <form method="post" action="details-more">
+
+          {% include "sprint15/partials/details-more/name.html" %}
+          {% include "sprint11/partials/details-more/age.html" %}
+          {% include "sprint11/partials/details-more/address.html" %}
+          {% include "sprint15/partials/details-more/othername.html" %}
+          {% include "sprint15/partials/details-more/nino.html" %}
+          {% include "sprint15/partials/details-more/phone.html" %}
+          {% include "sprint15/partials/details-more/email.html" %}
+
+        <input type="submit" class="button" value="Continue" />
+      </form>
+    </div>
+  </div>
+{% endblock %}

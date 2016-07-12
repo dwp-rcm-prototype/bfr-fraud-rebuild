@@ -1,11 +1,12 @@
 {% extends "layout.html" %}
 
 {% block phase%}
-  {% include 'sprint10/partials/phase-banner.html'%}
+  {% include 'sprint12/partials/phase-banner.html'%}
 {% endblock %}
 
 {% block main %}
   <div class="grid-row">
+
     <div class="column-two-thirds">
       <h1 class="heading-xlarge">What is the person doing?</h1>
 
@@ -15,7 +16,7 @@
             Select all that apply
           </legend>
 
-          <p class="bold-medium">Select as many as you can</p>
+          <p class="bold-medium">Select one or more</p>
 
           <div class="form-group">
             {% for check in options %}

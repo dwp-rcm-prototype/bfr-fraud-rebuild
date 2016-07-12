@@ -1,0 +1,19 @@
+<div class="form-group" id="other_name_form">
+  <label class="form-label-bold" for="email">Do you know their telephone number?</label>
+  <fieldset class="inline">
+    <label class="block-label" data-target="phone_hidden" for="phone_yes">
+      <input id="phone_yes" type="radio" name="phone_select" value="Yes" aria-controls="phone_hidden" aria-expanded="false" {{session.phone_yes}}>
+      Yes
+    </label>
+
+    <label class="block-label" for="phone_no">
+      <input id="phone_no" type="radio" name="phone_select" value="No" {{session.phone_no}}>
+      No
+    </label>
+
+    <div class="panel panel-border-narrow js-hidden {{validate.phone}}" id="phone_hidden" style="display:{{session.show_phone}}">
+      <label class="form-label-bold" for="phone">Please enter their telephone number</label>
+      <input type="text" class="form-control" id="phone" name="phone" value="{{session.phone}}">
+    </div>
+  </fieldset>
+</div>

@@ -1,0 +1,19 @@
+<div class="form-group" id="email_form">
+  <label class="form-label-bold" for="email">Do you know their email?</label>
+  <fieldset class="inline">
+    <label class="block-label" data-target="email_hidden" for="email_yes">
+      <input id="email_yes" type="radio" name="email_select" value="Yes" aria-controls="email_hidden" aria-expanded="false" {{session.other_name_yes}}>
+      Yes
+    </label>
+
+    <label class="block-label" for="email_no">
+      <input id="email_no" type="radio" name="email_select" value="No" {{session.email_no}}>
+      No
+    </label>
+
+    <div class="panel panel-border-narrow js-hidden {{validate.email}}" id="email_hidden" style="display:{{session.show_email}}">
+      <label class="form-label-bold" for="email">Please enter their email address</label>
+      <input type="text" class="form-control" id="email" name="email" value="{{session.email}}">
+    </div>
+  </fieldset>
+</div>

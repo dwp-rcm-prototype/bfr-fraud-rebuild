@@ -10,17 +10,15 @@
       {% if exit_warning.status %}
 
         <h1 id="exit_warning_h1" class="heading-medium">
-          Sorry, DWP can’t take your report
+          Based on what you've provided, we're unlikely to be able to investigate.
         </h1>
 
-        <div id="exit_warning" class="panel panel-border-narrow indent-info-blue">
-          <p class="text">
-            We’re unable to investigate without knowing at least the name, address and age of the person.
-          </p>
-        </div>
+          <p>If you still want to make a report:</p>
+          <a href="details-more2" class="button" value="continue">Continue</a>
+          <br><br>or<br><br>
+          <a href="https://www.gov.uk/" class="" value="Exit" />Exit this service</a>
+          <br><br><br><br>
 
-        <!--<p>To help us find them, do you also know their <span id="more_info_needed">{{exit_warning.needed}}</span></p>
-        <p><a class="button" href="/sprint12/details" role="button">Start again</a></p>-->
         <p><a href="/sprint12/feedback" id="exit_warning_feedback">
           What did you think of this service? (takes 30 seconds)
         </a></p>
@@ -43,19 +41,38 @@
                     <span class="form-hint">{{element.hint}}</span>
                   {% endif %}
 
-                <label class="block-label" for="{{element.id}}_yes">
-                  <input id="{{element.id}}_yes" type="radio" name="{{element.id}}" value="true">
+                <label class="block-label" for="{{element.id}}_yes" data-target="abroadadress_hiddenyes" for="abroadadress_yes" value="yes" aria-expanded="true">
+                  <input id="{{element.id}}_yes" type="radio" name="{{element.id}}" value="true" value="Yes" aria-controls="abroadadress_abroad_hiddenyes" aria-expanded="true">
                   Yes
                 </label>
-                <label class="block-label" for="{{element.id}}_no">
-                  <input id="{{element.id}}_no" type="radio" name="{{element.id}}" value="false">
+                <label class="block-label" for="{{element.id}}_no" data-target="abroadadress_hidden" for="abroadadress_yes" value="No" aria-expanded="false">
+                  <input id="{{element.id}}_no" type="radio" name="{{element.id}}"  value="false"  value="Yes" aria-controls="abroadadress_abroad_hidden" aria-expanded="true">
                   No
                 </label>
               </fieldset>
             {% endfor %}
           </div>
 
-          <input type="submit" class="button" value="Continue" />
+          <div class="js-hidden " id="abroadadress_hiddenyes" style="display:{{session.abroadadress_abroad_hiddenyes}};">
+              <input type="submit" class="button" value="Continue" />
+          </div>
+
+          <div class="panel panel-border-narrow js-hidden" id="abroadadress_hidden" style="display:{{session.abroadadress_abroad_hidden}};">
+
+              <h2 class="heading-medium">Sorry, DWP can’t take your report.</h2>
+
+              <p>We’re unable to investigate without knowing at least the name, address and age of the person.</p>
+
+              <a href="https://www.gov.uk/" class="button" value="Exit" />Exit this service</a>
+
+          </div>
+
+          <br><br>
+          <br><br>
+
+        <p><a href="/sprint12/feedback" id="exit_warning_feedback">
+          What did you think of this service? (takes 30 seconds)
+        </a></p>
         </form>
       {% endif %}
     </div>

@@ -68,7 +68,7 @@ var sessions = {
         }
 
         if ( selection === 'other' ) {
-          fraud_titles.push({'title':'other type of fraud'});
+          fraud_titles.push({'title':'is committing some type of fraud'});
         }
       }
       res.cookie('fraud_urls', fraud_urls);
@@ -189,7 +189,50 @@ var sessions = {
 
     // Carers
     if ( req.path === '/carers' ) {
+      if ( req.body.job_select == 'Yes' ) {
+        req.body.job_yes = 'checked';
+        req.body.job_no = '';
+        req.body.job_hidden_display = "block";
+      } else if ( req.body.job_select == 'No' ) {
+        req.body.job_yes = '';
+        req.body.job_no = 'checked';
+        req.body.job_hidden_display = "hidden";
+      }
+
       res.cookie('carers', req.body);
+    }
+
+    // Carers-More
+    if ( req.path === '/carers-more' ) {
+      if ( req.body.who_select == "Yes" ) {
+        req.body.who_yes = 'checked';
+        req.body.who_no = '';
+        req.body.who_hidden_display = 'block';
+      } else   if ( req.body.who_select == "No" ) {
+        req.body.who_yes = '';
+        req.body.who_no = 'checked';
+        req.body.who_hidden_display = 'hidden';
+      }
+
+      if ( req.body.dob_select == "Yes" ) {
+        req.body.dob_yes = "checked";
+        req.body.dob_hidden_display = "block";
+        req.body.age_hidden_display = "hidden";
+      } else if ( req.body.dob_select == "No" ) {
+        req.body.dob_no = "checked";
+        req.body.dob_hidden_display = "hidden";
+        req.body.age_hidden_display = "block";
+      }
+
+      if ( req.body.address_select == "Yes" ) {
+        req.body.address_yes = "checked";
+        req.body.address_hidden_display = "block";
+      } else if ( req.body.address_select == "No" ) {
+        req.body.address_no = "checked";
+        req.body.address_hidden_display = "hidden";
+      }
+
+      res.cookie('carers-more', req.body);
     }
 
     // Abroad
@@ -245,6 +288,11 @@ var sessions = {
       res.cookie('other', req.body);
     }
 
+    // Additional Information
+    if ( req.path === '/additional-information' ) {
+      res.cookie('additional', req.body);
+    }
+
     // Exit Page
     if ( req.path === '/exit' ) {
       var details = req.cookies.details;
@@ -262,6 +310,7 @@ var sessions = {
       }
 
       res.cookie('details', details);
+
     }
   }
 };

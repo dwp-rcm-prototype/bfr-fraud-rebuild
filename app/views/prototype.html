@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">The Referral Capture Project prototype links</h1>
+
+      <p>
+        Here are a list of the prototypes and the journey's explanations
+      </p>
+
+      <ul>
+        <li><a href="http://rbf-prototype.herokuapp.com/sprint14/start-page">Option 1</a><br>Exit text to a button</li>
+        <li><a href="http://rbf-prototype.herokuapp.com/sprintdexitcontinue/start-page">Option 2</a><br>Switch around exit text and continue button</li>
+        <li><a href="http://rbf-prototype.herokuapp.com/sprint13/start-page">Option 3</a><br>Give user option to exit or continue with buttons shown when selected</li>
+      </ul>
+
+      <ul>
+        <li>
+          <h2 class="heading-medium"><a href="http://rbf-prototype.herokuapp.com/sprint14/start-page"> (Current prototype)</a> Testing exit</h2>
+          <h3 class="heading-small">Journey description:</h3>
+            <p>User does not select all 3 minimum options to get through details, gets re-directed to details-more, selects they dont know the missing selections and has an option to exit (example is to gov.uk)</p>
+          </li>
+          <li>
+            <h2 class="heading-medium"><a href="http://rbf-prototype.herokuapp.com/sprint13/start-page">Option 2 (Unburden box)</a></h2>
+            <h3 class="heading-small">Journey description:</h3>
+            <p>User does not select all 3 minimum options to get through details, gets re-directed to details-more, selects they dont know the missing selections and has an option to exit or continue.<br>
+            Continue takes them through to a page which shows the unburden box, then a review box.</p>
+          </li>
+          <li>
+            <h2 class="heading-medium"><a href="http://rbf-prototype.herokuapp.com/sprintdexitcontinue/start-page">Option 3 (Continue / exit test)</a></h2>
+            <h3 class="heading-small">Journey description:</h3>
+            <p>User does not select all 3 minimum options to get through details, gets re-directed to details-more, selects they dont know the missing selections and has an option to exit or continue.<br>
+            Continue takes them through to the details page - showing all options and a y/n for the "minor" data gathering fields.</p>
+          </li>
+          <!--<li>
+            <h2 class="heading-medium"><a href="http://rbf-prototype.herokuapp.com/sprint15/start-page">Option 4 (Continue through service)</a></h2>
+            <h3 class="heading-small">Journey description:</h3>
+            <p>User goes straight to details-more, fills in form, leaves name, address or DOB empty and gets put to details-exit page to tell them "to continue you need to fill in details missed" or "no i dont know the answer but wish to continue anyway" - which then takes user to fraud-types page.</p>
+          </li>-->
+          <li>
+            <h2 class="heading-medium"><a href="http://rbf-prototype.herokuapp.com/sprint16/start-page">Option 4 (Continue through service with input boxes on exit-page)</a></h2>
+            <h3 class="heading-small">Journey description:</h3>
+            <p>User goes straight to details-more, fills in form, leaves name, address or DOB empty and gets put to details-exit page to tell them "to continue you need to fill in details missed" or "no i dont know the answer but wish to continue anyway". Clicking fill in details shows two inputs on page, no makes user go to fraud types.</p>
+          </li>
+          <li>
+            <h2 class="heading-medium">Housing Benefit</h2>
+            <h3 class="heading-small">Journey links (to be completed):</h3>
+            <p>Landing page<br>
+            LA landing page<br>
+            </p>
+          </li>
+        </ul>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

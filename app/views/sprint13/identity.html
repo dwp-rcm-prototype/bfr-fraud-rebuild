@@ -5,13 +5,29 @@
 {% endblock %}
 
 {% block main %}
-  <div class="grid-row">
+
+
+
+<div class="column-two-thirds">
+  <h1 class="heading-xlarge">Using someone else’s identity</h1>
+
+  <form method="post" action="identity">
+    <div class="form-group {{validate.identity}}">
+      <label class="form-label-bold" for="identity">Why do you think they're committing identity fraud?</label>
+      <textarea class="form-control form-control-3-4" rows="5" id="identity" name="identity">{{session.identity}}</textarea>
+    </div>
+
+    <input id="submit" type="submit" class="button" value="Continue">
+  </form>
+</div>
+
+<!--  <div class="grid-row">
 
     <div class="column-two-thirds">
       <h1 class="heading-xlarge">Using an identity other than their own</h1>
 
       <form method="post" action="identity">
-        <div class="form-group {{validate.identity}}">
+      <div class="form-group {{validate.identity}}">
           <label class="form-label" for="identity">What have you seen or heard that makes you think this person is using another identity other than their own?</label>
           <textarea class="form-control form-control-3-4" rows="5" id="identity" name="identity">{{session.identity}}</textarea>
         </div>
@@ -153,8 +169,11 @@
         </fieldset>
 
 
+
         <input id="submit" type="submit" class="button" value="Continue">
       </form>
     </div>
-  </div>
+
+
+  </div> -->
 {% endblock %}

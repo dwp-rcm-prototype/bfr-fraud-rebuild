@@ -5,19 +5,28 @@
 {% endblock %}
 
 {% block main %}
-  <div class="grid-row">
-    <div class="column-two-thirds">
+  <div class="">
+    <div class="">
       {% if exit_warning.status %}
 
         <h1 class="heading-xlarge">
-          Report of benefit fraud
+          Your report
         </h1>
 
       <form method="post" action="letusknow-letusknow">
-        <div class="form-group ">
+        <div class="form-group">
+          <h2 class="heading-medium" style="padding-top: 0; margin-top: 0;">Give as much of the following information as you can:</h2>
           <fieldset id="address-form">
-            <legend class="form-label-bold" for="address-form">Give as much of the following information as you can:</legend>
-            <p class="form-hint">Please provide (if known) name, address, length of time it has been going on</p>
+
+            <ul class="list-bullet">
+                <li>who they are - include name, address, age and contact details</li>
+                <li>details of any partners they live with</li>
+                <li>any work they do - include what they do, where they work and how many hours a week</li>
+                <li>what the person is doing to make you think they are committing benefit fraud</li>
+            </ul>
+
+            <br>
+
 
             <textarea class="form-control form-control-3-4" rows="10" id="letusknow" name="letusknow"></textarea>
 
@@ -25,7 +34,7 @@
 
         </div>
 
-        <input type="submit" class="button" value="Continue" />
+        <a href="complete" type="submit" class="button" value="Submit" />Submit</a>
       </form>
 
         <!--<a href="/sprint12/feedback" id="exit_warning_feedback">
@@ -49,10 +58,10 @@
                     <span class="form-hint">{{element.hint}}</span>
                   {% endif %}
 
-                <label class="block-label" for="{{element.id}}_yes">
-                  <input id="{{element.id}}_yes" type="radio" name="{{element.id}}" value="true">
-                  Yes
-                </label>
+                  <label class="block-label" for="{{element.id}}_yes"   data-target="abroadadress_hidden2" for="abroadadress_yes" value="No" aria-expanded="yes">
+                    <input id="{{element.id}}_yes" type="radio" name="{{element.id}}" value="true"  value="Yes" aria-controls="abroadadress_abroad_hidden2" aria-expanded="true">
+                    Yes
+                  </label>
                 <label class="block-label" for="{{element.id}}_no"  data-target="abroadadress_hidden" value="No" aria-expanded="false">
                   <input id="{{element.id}}_no" type="radio" name="{{element.id}}" value="false">
                   No
@@ -60,25 +69,71 @@
               </fieldset>
             {% endfor %}
 
-            <div class="js-hidden " id="abroadadress_hidden" style="display:{{session.abroadadress_abroad_hidden}};">
-              <div class="form-group ">
-                <div id="exit_warning" class="panel indent-info-blue">
-                  <p class="text">
-                    We are sorry but our department may struggle to investigate your referral as we may not be able to identify the suspect in our records on the information you have supplied.
-                  </p>
-                </div>
-
-                <p class="text">
-                  If you would still like to make your referral, please click on the continue button below and we will do our best endeavors to investigate your referral fully.
-                </p>
-
-              </div>
-
+            <div class="js-hidden " id="abroadadress_hidden2" style="display:{{session.abroadadress_abroad_hidden2}};">
+              <br><br>
+              <input type="submit" class="button" value="Continue" />
             </div>
+
+            <div class="js-hidden " id="abroadadress_hidden" style="display:{{session.abroadadress_abroad_hidden}};">
+              <div class="panel panel-border-narrow ">
+
+
+                <h2 class="heading-medium">We’re unable to investigate without knowing at least the name, address and age of the person.</h2>
+
+                  <!--<input type="submit" class="button" value="Continue" />-->
+
+                  <form action="exit" method="post">
+
+                    <!-- START of library testing for yes / no options -->
+                    <div class="form-group">
+                      <fieldset  class="">
+                        <label class="block-label" for="details-yes"   data-target="yesinfo_continue" for="yesinfo_yes" value="yes" aria-expanded="true">
+                          <input id="details-yes" type="radio" name="details-select" value="Yes">
+                          I want to exit the service
+                        </label>
+
+                        <label class="block-label" for="details-no"  data-target="noinfo_continue" for="noinfo_yes" value="No" aria-expanded="false">
+                          <input id="details-no" type="radio" name="details-select" value="No"  >
+                          I still wish to continue even though I know you're unable to investigate
+                        </label>
+                      </fieldset>
+                    </div>
+
+                    <div class="js-hidden " id="yesinfo_continue" style="display:{{session.yesinfo_continue}};">
+                      <a type="submit" class="button" value="Continue" href="https://www.gov.uk/" />Exit</a>
+                    </div>
+
+
+                    <div class="js-hidden " id="noinfo_continue" style="display:{{session.noinfo_continue}};">
+                      <div class="form-group">
+
+                        <a type="submit" class="button" value="Continue" href="details-more" />Continue</a>
+
+
+
+                      </div>
+
+                    </div>
+
+                    <!-- END of library testing for yes / no options -->
+
+                  </form>
+
+
+                  <!--
+                  <input type="submit" class="button" value="Continue" />
+                  <br><br>or<br><br>
+                  <a href="https://www.gov.uk/" class="" value="Exit" />Exit this service</a>
+                -->
+                </div>
+                <br><br>
+                <a href="/feedback">What did you think of this service? (takes 30 seconds)</a>
+            </div>
+
 
           </div>
 
-          <input type="submit" class="button" value="Continue" />
+          <!--<input type="submit" class="button" value="Continue" />-->
         </form>
       {% endif %}
     </div>

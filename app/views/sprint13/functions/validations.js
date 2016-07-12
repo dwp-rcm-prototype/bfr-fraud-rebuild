@@ -116,10 +116,6 @@ var validations = {
 
     // Validate Employment Details Page
     if ( req.path == '/employment-details' ) {
-      if ( req.body.employment_select === undefined ) {
-        validation.status = false;
-        errors = get_errors('', 'You must select at least one option for employment');
-      }
       validation.errors = get_errors('', '', required);
       return validation;
     }
@@ -191,16 +187,7 @@ var validations = {
 
     // Partner Employment
     if ( req.path == '/partner-employment' ) {
-      if ( req.body.pn_employment_select === 'Yes' ) {
-        if ( req.body.employment_select === undefined ) {
-          validation.status = false;
-          validation.errors = get_errors('', 'You must select at least one option for employment');
-        }
-      } else if ( req.body.pn_employment_select === undefined ) {
-        validation.status = false;
-        required.push('pn_employment_select');
-        validation.errors = get_errors('', 'You must select at least one option');
-      }
+
       return validation;
     }
 
